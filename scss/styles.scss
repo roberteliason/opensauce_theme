@@ -1,0 +1,104 @@
+@import "bourbon/bourbon";
+@import "base/base";
+@import "neat/neat";
+@import "navigation";
+@import "front-page";
+@import "recipe";
+
+/* Styles go here */
+body {
+	margin: 0;
+	background-color: $navigation-background;
+
+	.main {
+		background-color: $base-background-color;
+	}
+}
+
+.hidden-desktop {
+	@include media ( $horizontal-bar-mode ) {
+		display: none;
+	}
+}
+
+
+/* sections */
+section {
+	header {
+		background-color: $navigation-background;
+		padding: 10px;
+
+		h1, h2, h3 {
+			margin-bottom: 0;
+			color: white;
+		}
+	}
+
+	.body {
+		padding: 0 10px;
+	}
+}
+
+
+/* content */
+article {
+    &.page {
+        padding: 0 10px;
+    }
+}
+
+
+/* comments */
+#comments {
+  padding: 0 10px;
+}
+
+
+/* carousels */
+.swiper-container {
+	width: 100%;
+	height: 300px;
+}
+
+.swiper-button-next, .swiper-button-prev {
+	@media screen and ( max-width: 600px ) {
+		display: none;
+	}
+}
+
+.swiper-slide {
+	background-position: 50% 50%;
+	background-size: cover;
+
+	h3 {
+		padding: 10px 10px 0 10px;
+	}
+	p {
+		padding: 0 10px;
+	}
+}
+
+
+/* social media muck */
+section.sharing {
+	header {
+		background-color: fuchsia;
+	}
+
+	.body {
+		margin: 0;
+		padding-top: 8px;
+		background-color: $navigation-background;
+		text-align: center;
+	}
+}
+
+.social-media {
+	img {
+		width: 2em;
+		height: 2em;
+		border: 1px solid rgba( 0,0,0,0.75 );
+		border-radius: 5px;
+		margin: 0 3px;
+	}
+}

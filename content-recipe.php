@@ -1,0 +1,139 @@
+<?php
+/**
+ * @package opensauce
+ */
+$permalink = get_the_permalink();
+?>
+
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <section class="intro">
+        <?php if( have_rows( 'images' ) ): ?>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <?php while( have_rows('images') ): the_row();
+                    $image = get_sub_field( 'photo' );
+                ?>
+                <div class="swiper-slide" style="background-image: url( '<?php echo $image["url"]; ?>' );"></div>
+                <?php endwhile; ?>
+            </div>
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <?php endif; ?>
+
+        <header>
+            <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+        </header>
+        <div class="body">
+            <?php the_content(); ?>
+        </div>
+
+    </section>
+
+    <?php if( have_rows( 'ingredients' ) ): ?>
+    <a name="ingredients"></a>
+    <section class="ingredients">
+        <header>
+            <a href="#ingredients">
+                <h2>Ingredients</h2>
+            </a>
+        </header>
+        <div class="body">
+            <table class="ingredients-table">
+                <thead>
+                <tr>
+                    <th>Amount</th>
+                    <th>Unit</th>
+                    <th>Ingredient</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php while( have_rows( 'ingredients' ) ): the_row();
+                    $amount     = get_sub_field( 'amount' );
+                    $unit       = get_sub_field( 'unit' );
+                    $ingredient = get_sub_field( 'ingredient' );
+                ?>
+                <tr>
+                    <td><?php echo $amount ?></td>
+                    <td><?php echo $unit->name ?></td>
+                    <td><?php echo $ingredient ?></td>
+                </tr>
+                <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <?php endif; ?>
+
+
+    <?php if( have_rows( 'steps' ) ): ?>
+    <a name="steps"></a>
+    <section class="steps">
+        <header>
+            <a href="#steps">
+                <h2>Steps</h2>
+            </a>
+        </header>
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <?php
+                    $step = 1;
+                    while( have_rows( 'steps' ) ): the_row();
+                        $description = get_sub_field( 'description' );
+                ?>
+                <div class="swiper-slide">
+                    <h3><?php _e( 'Step', 'opensauce' ) ?> <?php echo $step; ?></h3>
+                    <p><?php echo $description ?></p>
+                </div>
+                <?php
+                        $step++;
+                    endwhile;
+                ?>
+            </div>
+
+            <div class="swiper-pagination"></div>
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <a name="nonsense"></a>
+    <section class="nonsense">
+        <header>
+            <a href="#nonsense">
+                <h2>Nonsense</h2>
+            </a>
+        </header>
+    </section>
+
+    <a name="#sharing"></a>
+    <section class="sharing">
+        <header>
+            <a href="#sharing">
+                <h2>Share this</h2>
+            </a>
+        </header>
+        <div class="body">
+            <a href="http://twitter.com" target="_blank" class="social-media twitter"><?php opensauce_render_image( 'twitter.svg', 'Twitter' ) ?></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink ?>" target="_blank" class="social-media facebook"><?php opensauce_render_image( 'facebook.svg', 'Facebook' ) ?></a>
+            <a href="http://instagram.com" target="_blank" class="social-media instagram"><?php opensauce_render_image( 'instagram.svg', 'Instagram' ) ?></a>
+            <a href="http://pinterest.com" target="_blank" class="social-media pinterest"><?php opensauce_render_image( 'pinterest.svg', 'Pinterest' ) ?></a>
+        </div>
+    </section>
+
+	<footer class="entry-footer">
+        <?php
+        wp_link_pages( array(
+            'before' => '<div class="page-links">' . __( 'Pages:', 'opensauce' ),
+            'after'  => '</div>',
+        ) );
+        ?>
+
+        <?php opensauce_posted_on(); ?>
+		<?php opensauce_entry_footer(); ?>
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->

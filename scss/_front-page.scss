@@ -1,0 +1,29 @@
+.home {
+	.latest {
+		.swiper-container {
+			height: 320px;
+
+			@media screen and ( min-width: 600px ) {
+				height: 450px;
+			}
+		}
+
+		.swiper-slide {
+			a {
+				display: block;
+				height: 100%;
+				color: white;
+			}
+
+			header, .body {
+				background-color: rgba( 0,0,0,0.25 );
+				width: 50%;
+				max-width: 250px;
+			}
+
+			.body {
+				padding-bottom: 1em;
+			}
+		}	
+	}
+}
