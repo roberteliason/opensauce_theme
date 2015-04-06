@@ -118,10 +118,8 @@ $permalink = get_the_permalink();
             </a>
         </header>
         <div class="body">
-            <a href="http://twitter.com" target="_blank" class="social-media twitter"><?php opensauce_render_image( 'twitter.svg', 'Twitter' ) ?></a>
+            <a href="https://twitter.com/home?status=<?php echo $permalink . ' via @opensauce_se' ?>" target="_blank" class="social-media twitter"><?php opensauce_render_image( 'twitter.svg', 'Twitter' ) ?></a>
             <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink ?>" target="_blank" class="social-media facebook"><?php opensauce_render_image( 'facebook.svg', 'Facebook' ) ?></a>
-            <a href="http://instagram.com" target="_blank" class="social-media instagram"><?php opensauce_render_image( 'instagram.svg', 'Instagram' ) ?></a>
-            <a href="http://pinterest.com" target="_blank" class="social-media pinterest"><?php opensauce_render_image( 'pinterest.svg', 'Pinterest' ) ?></a>
         </div>
     </section>
 

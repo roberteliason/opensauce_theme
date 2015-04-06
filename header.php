@@ -34,11 +34,10 @@
 						<li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
 						<li class="nav-link hidden-desktop">
 							<div class="social-profiles">
+                                <div class="follow">Follow us on:</div>
 								<a href="http://twitter.com" target="_blank" class="social-media twitter"><?php opensauce_render_image( 'twitter.svg', 'Twitter' ) ?></a>
 								<a href="http://facebook.com" target="_blank" class="social-media facebook"><?php opensauce_render_image( 'facebook.svg', 'Facebook' ) ?></a>
-								<a href="http://instagram.com" target="_blank" class="social-media instagram"><?php opensauce_render_image( 'instagram.svg', 'Instagram' ) ?></a>
-								<a href="http://pinterest.com" target="_blank" class="social-media pinterest"><?php opensauce_render_image( 'pinterest.svg', 'Pinterest' ) ?></a>
-							</div>							
+							</div>
 						</li>
 					</ul>
 				</nav>

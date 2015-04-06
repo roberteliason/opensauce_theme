@@ -461,6 +461,11 @@ section header {
   section header h1, section header h2, section header h3 {
     margin-bottom: 0;
     color: white; }
+  section header.page-header {
+    background-color: transparent;
+    padding: 0; }
+    section header.page-header h1 {
+      color: #333; }
 section .body {
   padding: 0 10px; }
 

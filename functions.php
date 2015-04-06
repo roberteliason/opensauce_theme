@@ -13,6 +13,11 @@ include_once( get_template_directory() . '/taxonomies/ingredient.php' );
 include_once( get_template_directory() . '/taxonomies/unit.php' );
 
 /**
+ * Include helper classes
+ */
+include_once( get_template_directory() . '/inc/class-recipe-functions.php' );
+
+/**
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {

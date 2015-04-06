@@ -32,6 +32,15 @@ section {
 			margin-bottom: 0;
 			color: white;
 		}
+
+        &.page-header {
+            background-color: transparent;
+            padding: 0;
+
+            h1 {
+                color: $dark-gray;
+            }
+        }
 	}
 
 	.body {

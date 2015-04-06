@@ -10,45 +10,34 @@
  * @package opensauce
  */
 
-get_header(); ?>
+get_header();
+$permalink = get_the_permalink();
 
+$latest = Recipe_Functions::get()->get_latest();
+?>
+
+    <?php if ( false !== $latest ) : ?>
     <section class="latest">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image: url( '<?php echo get_template_directory_uri(); ?>/img/3.jpg' );">
-                    <a href="recipe.html">
+                <?php
+                    foreach( $latest as $recipe ):
+                        $title     = $recipe->post_title;
+                        $link      = get_the_permalink( $recipe->ID );
+                        $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $recipe->ID ), 'large' );
+                        $excerpt   = $recipe->post_excerpt;
+                ?>
+                <div class="swiper-slide" style="background-image: url( '<?php echo $thumbnail[0] ?>' );">
+                    <a href="<?php echo $link ?>">
                         <header>
-                            <h2>Recipe title</h2>
+                            <h2><?php echo $title ?></h2>
                         </header>
                         <div class="body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                            <?php echo $excerpt ?>
                         </div>
                     </a>
                 </div>
-                <div class="swiper-slide" style="background-image: url( '<?php echo get_template_directory_uri(); ?>/img/7.jpg' );">
-                    <a href="recipe.html">
-                        <header>
-                            <h2>Recipe title</h2>
-                        </header>
-                        <div class="body">
-                            Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-                    </a>
-                </div>
-                <div class="swiper-slide" style="background-image: url( '<?php echo get_template_directory_uri(); ?>/img/5.jpg' );">
-                    <a href="recipe.html">
-                        <header>
-                            <h2>Recipe title</h2>
-                        </header>
-                        <div class="body">
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident.
-                        </div>
-                    </a>
-                </div>
+                <?php endforeach; ?>
             </div>
 
             <div class="swiper-pagination"></div>
@@ -57,6 +46,7 @@ get_header(); ?>
             <div class="swiper-button-next"></div>
         </div>
     </section>
+    <?php endif; ?>
 
     <a name="#sharing"></a>
     <section class="sharing">
@@ -66,10 +56,8 @@ get_header(); ?>
             </a>
         </header>
         <div class="body">
-            <a href="http://twitter.com" target="_blank" class="social-media twitter"><?php opensauce_render_image( 'twitter.svg', 'Twitter' ) ?></a>
-            <a href="http://facebook.com" target="_blank" class="social-media facebook"><?php opensauce_render_image( 'facebook.svg', 'Facebook' ) ?></a>
-            <a href="http://instagram.com" target="_blank" class="social-media instagram"><?php opensauce_render_image( 'instagram.svg', 'Instagram' ) ?></a>
-            <a href="http://pinterest.com" target="_blank" class="social-media pinterest"><?php opensauce_render_image( 'pinterest.svg', 'Pinterest' ) ?></a>
+            <a href="https://twitter.com/home?status=<?php echo $permalink . ' via @opensauce_se' ?>" target="_blank" class="social-media twitter"><?php opensauce_render_image( 'twitter.svg', 'Twitter' ) ?></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink ?>" target="_blank" class="social-media facebook"><?php opensauce_render_image( 'facebook.svg', 'Facebook' ) ?></a>
         </div>
     </section>
 
