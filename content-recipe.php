@@ -31,75 +31,77 @@ $permalink = get_the_permalink();
 
     </section>
 
-    <?php if( have_rows( 'ingredients' ) ): ?>
-    <a name="ingredients"></a>
-    <section class="ingredients">
-        <header>
-            <a href="#ingredients">
-                <h2>Ingredients</h2>
-            </a>
-        </header>
-        <div class="body">
-            <table class="ingredients-table">
-                <thead>
-                <tr>
-                    <th>Amount</th>
-                    <th>Unit</th>
-                    <th>Ingredient</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php while( have_rows( 'ingredients' ) ): the_row();
-                    $amount     = get_sub_field( 'amount' );
-                    $unit       = get_sub_field( 'unit' );
-                    $ingredient = get_sub_field( 'ingredient' );
-                ?>
-                <tr>
-                    <td><?php echo $amount ?></td>
-                    <td><?php echo $unit->name ?></td>
-                    <td><?php echo $ingredient ?></td>
-                </tr>
-                <?php endwhile; ?>
-                </tbody>
-            </table>
-        </div>
-    </section>
-    <?php endif; ?>
-
-
-    <?php if( have_rows( 'steps' ) ): ?>
-    <a name="steps"></a>
-    <section class="steps">
-        <header>
-            <a href="#steps">
-                <h2>Steps</h2>
-            </a>
-        </header>
-
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <?php
-                    $step = 1;
-                    while( have_rows( 'steps' ) ): the_row();
-                        $description = get_sub_field( 'description' );
-                ?>
-                <div class="swiper-slide">
-                    <h3><?php _e( 'Step', 'opensauce' ) ?> <?php echo $step; ?></h3>
-                    <p><?php echo $description ?></p>
-                </div>
-                <?php
-                        $step++;
-                    endwhile;
-                ?>
+    <div class="col-container">
+        <?php if( have_rows( 'ingredients' ) ): ?>
+        <a name="ingredients"></a>
+        <section class="ingredients">
+            <header>
+                <a href="#ingredients">
+                    <h2>Ingredients</h2>
+                </a>
+            </header>
+            <div class="body">
+                <table class="ingredients-table">
+                    <thead>
+                    <tr>
+                        <th>Amount</th>
+                        <th>Unit</th>
+                        <th>Ingredient</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php while( have_rows( 'ingredients' ) ): the_row();
+                        $amount     = get_sub_field( 'amount' );
+                        $unit       = get_sub_field( 'unit' );
+                        $ingredient = get_sub_field( 'ingredient' );
+                    ?>
+                    <tr>
+                        <td><?php echo $amount ?></td>
+                        <td><?php echo $unit->name ?></td>
+                        <td><?php echo $ingredient ?></td>
+                    </tr>
+                    <?php endwhile; ?>
+                    </tbody>
+                </table>
             </div>
+        </section>
+        <?php endif; ?>
 
-            <div class="swiper-pagination"></div>
 
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-    </section>
-    <?php endif; ?>
+        <?php if( have_rows( 'steps' ) ): ?>
+        <a name="steps"></a>
+        <section class="steps">
+            <header>
+                <a href="#steps">
+                    <h2>Steps</h2>
+                </a>
+            </header>
+
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <?php
+                        $step = 1;
+                        while( have_rows( 'steps' ) ): the_row();
+                            $description = get_sub_field( 'description' );
+                    ?>
+                    <div class="swiper-slide">
+                        <h3><?php _e( 'Step', 'opensauce' ) ?> <?php echo $step; ?></h3>
+                        <p><?php echo $description ?></p>
+                    </div>
+                    <?php
+                            $step++;
+                        endwhile;
+                    ?>
+                </div>
+
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+        <?php endif; ?>
+    </div>
 
     <a name="nonsense"></a>
     <section class="nonsense">
@@ -123,6 +125,7 @@ $permalink = get_the_permalink();
         </div>
     </section>
 
+    <!--
 	<footer class="entry-footer">
         <?php
         wp_link_pages( array(
@@ -133,5 +136,6 @@ $permalink = get_the_permalink();
 
         <?php opensauce_posted_on(); ?>
 		<?php opensauce_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+	</footer>
+	-->
+</article>

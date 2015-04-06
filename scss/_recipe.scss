@@ -1,5 +1,10 @@
 /* single recipe */
 .single-recipe {
+
+    .col-container {
+        @include outer-container;
+    }
+
 	section {
 		&.intro {
 			margin: 0;
@@ -44,6 +49,13 @@
 				background-color: pink;
 			}
 		}
+
+        &.ingredients, &.steps {
+            @include span-columns(6);
+            @include media( max-width 600px ) {
+                @include span-columns(12);
+            }
+        }
 
 		&.nonsense {
 			header {

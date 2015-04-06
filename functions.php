@@ -16,6 +16,7 @@ include_once( get_template_directory() . '/taxonomies/unit.php' );
  * Include helper classes
  */
 include_once( get_template_directory() . '/inc/class-recipe-functions.php' );
+include_once( get_template_directory() . '/inc/class-opensauce-nav-walker.php' );
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -92,6 +93,9 @@ function opensauce_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+    // Add custom image size for teasers
+    add_image_size( 'teaser', 600, 400 );
 }
 endif; // opensauce_setup
 add_action( 'after_setup_theme', 'opensauce_setup' );
@@ -167,3 +171,20 @@ function opensauce_admin_tweaks() {
 }
 add_action( 'admin_menu' , 'opensauce_admin_tweaks', 999 );
 add_action( 'edit_form_after_title', 'post_excerpt_meta_box' );
+
+
+/**
+ * Custom main menu
+ */
+function opensauce_render_main_menu() {
+    wp_nav_menu(
+        array(
+            'theme_location'  => 'primary',
+            'menu_class'      => 'navigation-menu show',
+            'menu_id'         => 'js-navigation-menu',
+            'container'       => 'nav',
+            'container_class' => 'navigation',
+            'walker'          => new Opensauce_Nav_Walker
+        )
+    );
+}

@@ -8,11 +8,10 @@
 /* Styles go here */
 body {
 	margin: 0;
-	background-color: $navigation-background;
 
-	.main {
-		background-color: $base-background-color;
-	}
+    .main {
+        @include outer-container;
+    }
 }
 
 .hidden-desktop {
@@ -33,11 +32,11 @@ section {
 			color: white;
 		}
 
-        &.page-header {
+        &.page-header, &.teaser-header{
             background-color: transparent;
             padding: 0;
 
-            h1 {
+            h1, h2, h3 {
                 color: $dark-gray;
             }
         }
@@ -56,6 +55,45 @@ article {
     }
 }
 
+
+/* teasers */
+section.teasers {
+    @include outer-container;
+}
+
+article.teaser {
+    @include span-columns(6);
+    @include media( max-width 600px ) {
+        @include span-columns(12);
+    }
+    p {
+        color: $dark-gray;
+    }
+}
+
+
+/* archive */
+body.archive {
+    .teasers {
+        @include span-columns(9);
+    }
+    .sidebar {
+        @include span-columns(3);
+    }
+    .teasers, .sidebar {
+        @include media( max-width 880px ) {
+            @include span-columns(12);
+        }
+    }
+
+    .teaser {
+        .image {
+            height: 200px;
+            background-position: center center;
+            background-size: cover;
+        }
+    }
+}
 
 /* comments */
 #comments {

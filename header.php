@@ -25,22 +25,8 @@
                     <?php opensauce_render_image( 'chili_pepper.png', 'Open Sauce' ) ?>
 				</a>
 				<a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
-				<nav role="navigation">
-					<?php // wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 
-					<ul id="js-navigation-menu" class="navigation-menu show">
-						<li class="nav-link"><a href="recipe.html">Recipes</a></li>
-						<li class="nav-link"><a href="javascript:void(0)">About Us</a></li>
-						<li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
-						<li class="nav-link hidden-desktop">
-							<div class="social-profiles">
-                                <div class="follow">Follow us on:</div>
-								<a href="http://twitter.com" target="_blank" class="social-media twitter"><?php opensauce_render_image( 'twitter.svg', 'Twitter' ) ?></a>
-								<a href="http://facebook.com" target="_blank" class="social-media facebook"><?php opensauce_render_image( 'facebook.svg', 'Facebook' ) ?></a>
-							</div>
-						</li>
-					</ul>
-				</nav>
+                <?php opensauce_render_main_menu() ?>
 			</div>
 		</header>
 
