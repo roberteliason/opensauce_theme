@@ -3,9 +3,10 @@
 @import "neat/neat";
 @import "navigation";
 @import "front-page";
+@import "grid-items";
 @import "recipe";
 
-/* Styles go here */
+
 body {
 	margin: 0;
 
@@ -56,41 +57,14 @@ article {
 }
 
 
-/* teasers */
-section.teasers {
-    @include outer-container;
-}
-
-article.teaser {
-    @include span-columns(6);
-    @include media( max-width 600px ) {
-        @include span-columns(12);
-    }
-    p {
-        color: $dark-gray;
-    }
-}
-
-
 /* archive */
 body.archive {
-    .teasers {
-        @include span-columns(9);
-    }
-    .sidebar {
-        @include span-columns(3);
-    }
-    .teasers, .sidebar {
-        @include media( max-width 880px ) {
-            @include span-columns(12);
+    @include media( $medium-screen-up ) {
+        .teasers {
+            @include span-columns(9);
         }
-    }
-
-    .teaser {
-        .image {
-            height: 200px;
-            background-position: center center;
-            background-size: cover;
+        .sidebar {
+            @include span-columns(3);
         }
     }
 }

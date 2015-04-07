@@ -416,6 +416,88 @@ header.navigation {
 .home .latest .swiper-slide .body {
   padding-bottom: 1em; }
 
+.grid-items-lines {
+  position: relative; }
+  .grid-items-lines::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .grid-items-lines .grid-item {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+    border-right: 1px solid rgba(51, 51, 51, 0.2);
+    cursor: pointer;
+    float: left;
+    height: 16em;
+    overflow: hidden;
+    outline: none;
+    padding: 2em;
+    text-decoration: none;
+    width: 100%; }
+    @media screen and (min-width: 53.75em) {
+      .grid-items-lines .grid-item {
+        width: 33.33333%; } }
+    @media screen and (min-width: 40em) {
+      .grid-items-lines .grid-item {
+        width: 66.66667%; } }
+    .grid-items-lines .grid-item:focus, .grid-items-lines .grid-item:hover {
+      background: rgba(51, 51, 51, 0.05); }
+  .grid-items-lines .grid-item img {
+    display: block;
+    height: 2.5em;
+    margin-bottom: 1.2em;
+    opacity: 0.2; }
+  .grid-items-lines .grid-item h1 {
+    color: #333;
+    font-size: 1.3em;
+    margin-bottom: 0.4em; }
+  .grid-items-lines .grid-item p {
+    color: rgba(51, 51, 51, 0.6);
+    line-height: 1.5em; }
+    @media screen and (min-width: 40em) {
+      .grid-items-lines .grid-item p {
+        max-width: 70%; } }
+  @media screen and (min-width: 53.75em) {
+    .grid-items-lines .grid-item-big {
+      width: 66.66667%; } }
+  @media screen and (min-width: 40em) {
+    .grid-items-lines .grid-item-big p {
+      max-width: 60%; } }
+  .grid-items-lines .bottom-cover {
+    background: #fff;
+    bottom: 0px;
+    height: 3px;
+    position: absolute;
+    width: 100%; }
+  .grid-items-lines .right-cover {
+    background: #fff;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    width: 4px; }
+
+.teasers .grid-item {
+  padding: 0;
+  width: 50%; }
+  .teasers .grid-item .image {
+    height: 120px;
+    background-position: center center;
+    background-size: cover; }
+  .teasers .grid-item h1 {
+    padding: 0 10px; }
+  .teasers .grid-item p {
+    max-width: 100%;
+    color: #333;
+    padding: 0 10px; }
+  @media screen and (min-width: 53.75em) {
+    .teasers .grid-item {
+      width: 33.33333%; }
+      .teasers .grid-item .image {
+        height: 100px; } }
+
 /* single recipe */
 .single-recipe .col-container {
   max-width: 68em;
@@ -466,7 +548,6 @@ header.navigation {
 .single-recipe section.nonsense header {
   background-color: teal; }
 
-/* Styles go here */
 body {
   margin: 0; }
   body .main {
@@ -501,61 +582,22 @@ section .body {
 article.page {
   padding: 0 10px; }
 
-/* teasers */
-section.teasers {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto; }
-  section.teasers::after {
-    clear: both;
-    content: "";
-    display: table; }
-
-article.teaser {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 48.82117%; }
-  article.teaser:last-child {
-    margin-right: 0; }
-  @media screen and (max-width: 600px) {
-    article.teaser {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 100%; }
-      article.teaser:last-child {
-        margin-right: 0; } }
-  article.teaser p {
-    color: #333; }
-
 /* archive */
-body.archive .teasers {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 74.41059%; }
-  body.archive .teasers:last-child {
-    margin-right: 0; }
-body.archive .sidebar {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 23.23176%; }
-  body.archive .sidebar:last-child {
-    margin-right: 0; }
-@media screen and (max-width: 880px) {
-  body.archive .teasers, body.archive .sidebar {
+@media screen and (min-width: 40em) {
+  body.archive .teasers {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 100%; }
-    body.archive .teasers:last-child, body.archive .sidebar:last-child {
+    width: 74.41059%; }
+    body.archive .teasers:last-child {
+      margin-right: 0; }
+  body.archive .sidebar {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%; }
+    body.archive .sidebar:last-child {
       margin-right: 0; } }
-body.archive .teaser .image {
-  height: 200px;
-  background-position: center center;
-  background-size: cover; }
 
 /* comments */
 #comments {
