@@ -33,7 +33,7 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
             <div class="meta">
                 <?php if ( !empty( $tags ) ): ?>
                     <?php foreach( $tags as $tag ): ?>
-                        <tag><?php echo( $tag->name ); ?></tag>
+                        <a href="/<?php echo $tag->taxonomy ?>/<?php echo $tag->slug ?>/"><tag><?php echo $tag->name ?></tag></a>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
