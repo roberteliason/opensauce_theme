@@ -2,10 +2,15 @@
 
 class Recipe_Functions {
 
+    /**
+     * Return instance of self
+     *
+     * @return static
+     */
     public static function get()
     {
         static $instance = null;
-        if (null === $instance) {
+        if ( null === $instance ) {
             $instance = new static();
         }
 
@@ -13,6 +18,12 @@ class Recipe_Functions {
     }
 
 
+    /**
+     * Get the n latest published recipes
+     *
+     * @param int $number
+     * @return array|bool
+     */
     public function get_latest( $number = 5 ) {
         $args = array(
             'post_type'      => 'recipe',
@@ -27,5 +38,21 @@ class Recipe_Functions {
         }
 
         return $posts;
+    }
+
+
+    /**
+     * Get all ingredient terms for a recipe
+     *
+     * @param $recipe_id
+     * @return array|bool
+     */
+    public function get_recipe_tags( $recipe_id ) {
+        $terms = wp_get_post_terms( $recipe_id, 'ingredient' );
+        if ( is_wp_error( $terms ) ) {
+            return false;
+        }
+
+        return $terms;
     }
 }

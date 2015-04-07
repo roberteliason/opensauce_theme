@@ -3,6 +3,7 @@
  * @package opensauce
  */
 $permalink = get_the_permalink();
+$tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -25,10 +26,18 @@ $permalink = get_the_permalink();
         <header>
             <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
         </header>
-        <div class="body">
-            <?php the_content(); ?>
+        <div class="columns">
+            <div class="body">
+                <?php the_content(); ?>
+            </div>
+            <div class="meta">
+                <?php if ( !empty( $tags ) ): ?>
+                    <?php foreach( $tags as $tag ): ?>
+                        <tag><?php echo( $tag->name ); ?></tag>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
         </div>
-
     </section>
 
     <div class="col-container">
@@ -44,9 +53,8 @@ $permalink = get_the_permalink();
                 <table class="ingredients-table">
                     <thead>
                     <tr>
-                        <th>Amount</th>
-                        <th>Unit</th>
-                        <th>Ingredient</th>
+                        <th class="amount"><?php _e( 'Amount', 'opensauce' ) ?></th>
+                        <th class="ingredient"><?php _e( 'Ingredient', 'opensauce' ) ?></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -56,9 +64,8 @@ $permalink = get_the_permalink();
                         $ingredient = get_sub_field( 'ingredient' );
                     ?>
                     <tr>
-                        <td><?php echo $amount ?></td>
-                        <td><?php echo $unit->name ?></td>
-                        <td><?php echo $ingredient ?></td>
+                        <td class="amount"><?php echo $amount ?>&nbsp;<?php echo $unit->name ?></td>
+                        <td class="ingredient"><?php echo $ingredient ?></td>
                     </tr>
                     <?php endwhile; ?>
                     </tbody>

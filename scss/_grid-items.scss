@@ -1,21 +1,15 @@
-@mixin grid-item-columns($columns) {
-  width: (100% / 12) * $columns;
+@mixin grid-item-columns( $columns ) {
+  width: ( 100% / 12 ) * $columns;
 }
 
 .grid-items-lines {
-  $base-background-color: white !default;
-  $dark-gray: #333 !default;
-  $light-gray: #DDD !default;
-  $medium-screen: em(640) !default;
-  $large-screen: em(860) !default;
-  $base-font-color: $dark-gray !default;
   $grid-items-background: $base-background-color;
   $grid-item-background: $base-background-color;
-  $grid-item-border: 1px solid transparentize($base-font-color, 0.8);
+  $grid-item-border: 1px solid transparentize( $base-font-color, 0.8 );
   $grid-item-columns: 4;
   $grid-item-big-columns: 8;
   $grid-item-color: $base-font-color;
-  $grid-item-height: 16em;
+  $grid-item-height: 10em;
 
   @include clearfix;
   position: relative;
@@ -103,12 +97,14 @@
 .teasers {
   .grid-item {
     padding: 0;
+    height: 22em;
     @include grid-item-columns( 6 );
 
     .image {
-      height: 120px;
+      height: 10em;
       background-position: center center;
       background-size: cover;
+      margin-bottom: $small-spacing;
     }
 
     h1 {
@@ -118,14 +114,15 @@
     p {
       max-width: 100%;
       color: $dark-gray;
-      padding: 0 10px;
+      padding: 0 $small-spacing;
     }
 
     @include media( $large-screen ) {
+      height: 20em;
       @include grid-item-columns( 4 );
 
       .image {
-        height: 100px;
+        height: 8em;
       }
     }
   }

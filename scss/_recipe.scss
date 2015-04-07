@@ -1,6 +1,10 @@
 /* single recipe */
 .single-recipe {
 
+    .main {
+        margin: 0 auto;
+    }
+
     .col-container {
         @include outer-container;
     }
@@ -12,7 +16,7 @@
 			.swiper-container {
 				height: 240px;
 
-				@media screen and ( min-width: 600px ) {
+				@include media( $medium-screen-up ) {
 					height: 450px;
 				}
 			}
@@ -24,20 +28,43 @@
 				position: relative;
 			} 
 
-			.body {
-				padding: 0 10px 20px 10px;
+			.columns {
+                padding: 0 $small-spacing $base-spacing $small-spacing;
+                @include outer-container;
+
+                .body {
+                    padding: 0;
+                    @include media( $medium-screen-up ) {
+                      @include span-columns( 8 );
+                    }
+                }
+
+                .meta {
+                    @include media( $medium-screen-up ) {
+                        @include span-columns( 4 );
+                    }
+                }
 			}
 
 			h1 {
 				color: white;
-				text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+				text-shadow: 1px 1px 5px rgba( 0, 0, 0, 0.7 );
 			}
 		}
 
 		&.ingredients {
-			header {
+  			header {
 				background-color: purple;
 			}
+
+            .body {
+                padding: 0 0 $small-spacing 0;
+            }
+
+            .amount {
+                width: 25%;
+                padding-left: $small-spacing;
+            }
 
 			tbody tr.selected {
 				background-color: rgba( 0,255,0,0.25 );
@@ -45,15 +72,21 @@
 		}
 
 		&.steps {
-			header {
+  			header {
 				background-color: pink;
 			}
+
+            .swiper-button-next, .swiper-button-prev {
+                top: 97%;
+                width: 27px;
+                height: 20px;
+            }
 		}
 
         &.ingredients, &.steps {
-            @include span-columns(6);
-            @include media( max-width 600px ) {
-                @include span-columns(12);
+            margin-bottom: $base-spacing;
+            @include media( $medium-screen-up ) {
+                @include span-columns( 6 );
             }
         }
 

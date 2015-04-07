@@ -26,6 +26,8 @@ get_header(); ?>
                 ?>
 
             <?php endwhile; ?>
+            <div class="right-cover"></div>
+            <div class="bottom-cover"></div>
         </section>
 
         <?php the_posts_navigation(); ?>
