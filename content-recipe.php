@@ -92,8 +92,10 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
                             $description = get_sub_field( 'description' );
                     ?>
                     <div class="swiper-slide">
-                        <h3><?php _e( 'Step', 'opensauce' ) ?> <?php echo $step; ?></h3>
-                        <p><?php echo $description ?></p>
+						<div class="slide-container">
+							<h3><?php _e( 'Step', 'opensauce' ) ?> <?php echo $step; ?></h3>
+							<p><?php echo $description ?></p>
+						</div>
                     </div>
                     <?php
                             $step++;
