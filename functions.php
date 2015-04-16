@@ -17,6 +17,8 @@ include_once( get_template_directory() . '/taxonomies/unit.php' );
  */
 include_once( get_template_directory() . '/inc/class-recipe-functions.php' );
 include_once( get_template_directory() . '/inc/class-opensauce-nav-walker.php' );
+include_once( get_template_directory() . '/inc/class-recipe-print.php' );
+
 
 /**
  * Set the content width based on the theme's design and stylesheet.

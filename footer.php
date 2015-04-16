@@ -10,7 +10,12 @@
 
 		</div>
 
-		<footer></footer>
+		<footer>
+			<?php
+				$printer = New Recipe_Print();
+				echo $printer->printQRCode();
+			?>
+		</footer>
 
 		<?php wp_footer(); ?>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
