@@ -124,13 +124,17 @@ add_action( 'widgets_init', 'opensauce_widgets_init' );
  * Enqueue scripts and styles.
  */
 function opensauce_scripts() {
-    wp_enqueue_style( 'opensauce-style', get_template_directory_uri() . '/css/styles.css' );
-	wp_enqueue_style( 'swiper', get_template_directory_uri() . '/bower_components/swiper/dist/css/swiper.min.css' );
+	opensauce_maybe_enqueue_styles( 'opensauce-style', '/css/styles.css' );
+	opensauce_maybe_enqueue_styles( 'swiper', '/bower_components/swiper/dist/css/swiper.min.css' );
+	opensauce_maybe_enqueue_styles( 'magnific', '/bower_components/magnific-popup/dist/magnific-popup.css' );
 
-    wp_deregister_script( 'jquery' );
-    wp_enqueue_script( 'jquery', get_template_directory_uri() . '/bower_components/jquery/dist/jquery.min.js', array(), filemtime( get_template_directory() . '/bower_components/jquery/dist/jquery.min.js' ), true );
-    wp_enqueue_script( 'swiper', get_template_directory_uri() . '/bower_components/swiper/dist/js/swiper.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/bower_components/swiper/dist/js/swiper.min.js' ), true );
-    wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/js/main.min.js'), true );
+	if ( file_exists( get_template_directory() . '/bower_components/jquery/dist/jquery.min.js' ) ) {
+		wp_deregister_script( 'jquery' );
+		opensauce_maybe_enqueue_script( 'jquery', '/bower_components/jquery/dist/jquery.min.js', array() );
+	}
+	opensauce_maybe_enqueue_script( 'swiper', '/bower_components/swiper/dist/js/swiper.min.js', array( 'jquery' ) );
+	opensauce_maybe_enqueue_script( 'magnific', '/bower_components/magnific-popup/dist/jquery.magnific-popup.min.js', array( 'jquery' ) );
+	opensauce_maybe_enqueue_script( 'main-js', '/js/main.min.js', array( 'jquery' ) );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -189,4 +193,32 @@ function opensauce_render_main_menu() {
             'walker'          => new Opensauce_Nav_Walker
         )
     );
+}
+
+
+/**
+ * A cautious approach to enqueuing js dependencies
+ *
+ * @param $script_slug
+ * @param $script_path
+ * @param $script_depends
+ */
+function opensauce_maybe_enqueue_script( $script_slug, $script_path, $script_depends ) {
+	if ( file_exists( get_template_directory() . $script_path ) ) {
+		wp_enqueue_script( $script_slug, get_template_directory_uri() . $script_path, $script_depends, filemtime( get_template_directory() . $script_path ), true );
+	}
+
+}
+
+
+/**
+ * A cautious approach to enqueuing css dependencies
+ *
+ * @param $style_slug
+ * @param $style_path
+ */
+function opensauce_maybe_enqueue_styles( $style_slug, $style_path ) {
+	if ( file_exists( get_template_directory() . $style_path ) ) {
+		wp_enqueue_style( $style_slug, get_template_directory_uri() . $style_path );
+	}
 }

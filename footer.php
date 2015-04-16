@@ -11,10 +11,7 @@
 		</div>
 
 		<footer>
-			<?php
-				$printer = New Recipe_Print();
-				echo $printer->printQRCode();
-			?>
+			<a href="<?php the_permalink(); ?>qr/" class="qr-popup">GET QR CODE</a>
 		</footer>
 
 		<?php wp_footer(); ?>

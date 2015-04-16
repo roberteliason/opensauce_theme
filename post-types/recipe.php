@@ -1,5 +1,7 @@
 <?php
 
+define('EP_RECIPE', 8388608); // 8388608 = 2^23
+
 function recipe_init() {
 	register_post_type( 'recipe', array(
 		'labels'            => array(
@@ -23,7 +25,13 @@ function recipe_init() {
 		'show_in_nav_menus' => true,
 		'supports'          => array( 'title', 'editor', 'thumbnail' ),
 		'has_archive'       => true,
-		'rewrite'           => true,
+		'rewrite'           => array(
+									'slug'       => 'recipe',
+									'with_front' => true,
+									'feed'       => true,
+							        'pages'      => true,
+							        'ep_mask'    => EP_RECIPE,
+							   ),
 		'query_var'         => true,
 		'menu_icon'         => 'dashicons-book-alt',
 	) );
@@ -56,3 +64,22 @@ function recipe_updated_messages( $messages ) {
 	return $messages;
 }
 add_filter( 'post_updated_messages', 'recipe_updated_messages' );
+
+add_rewrite_endpoint( 'qr', EP_RECIPE );
+
+
+function opensauce_recipe_template_include( $template ) {
+	$uri_elements  = explode( '/', trim( $_SERVER['REQUEST_URI'], '/' ) );
+	$first_element = array_shift( $uri_elements );
+	$last_element  = array_pop( $uri_elements );
+
+	if ( 'recipe' == $first_element && 'qr' == $last_element ) {
+		$new_template = locate_template( array( 'qr.php' ) );
+		if ( '' != $new_template ) {
+			return $new_template ;
+		}
+	}
+
+	return $template;
+}
+add_action( 'template_include', 'opensauce_recipe_template_include' );

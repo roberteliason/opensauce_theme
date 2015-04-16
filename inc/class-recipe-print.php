@@ -19,7 +19,28 @@ class Recipe_Print {
 		}
 
 		$barcodeobj = new TCPDF2DBarcode( $url, 'QRCODE, H');
-		return( $barcodeobj->getBarcodeSVGcode(6, 6, 'black') );
+		echo( $barcodeobj->getBarcodeSVGcode(3, 3, '#333333') );
+	}
+
+
+	public function getQRCode( $url = false ) {
+
+		if ( false === $url ) {
+			$url = $this->getCurrentPath();
+		}
+
+		$barcodeobj = new TCPDF2DBarcode( $url, 'QRCODE, H');
+		$barcodeobj->getBarcodeSVG( 3, 3, '#333333' );
+	}
+
+
+	public function getQRCodePNG( $url = false ) {
+		if ( false === $url ) {
+			$url = $this->getCurrentPath();
+		}
+
+		$barcodeobj = new TCPDF2DBarcode( $url, 'QRCODE, H');
+		$barcodeobj->getBarcodePNG( 3, 3, array( 33, 33, 33 ) );
 	}
 
 
