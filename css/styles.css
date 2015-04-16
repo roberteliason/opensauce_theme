@@ -569,6 +569,11 @@ header.navigation {
   background-color: rgba(0, 255, 0, 0.25); }
 .single-recipe section.steps header {
   background-color: pink; }
+.single-recipe section.steps .swiper-container {
+  height: auto;
+  min-height: 300px; }
+.single-recipe section.steps .swiper-slide {
+  height: auto; }
 .single-recipe section.steps .swiper-button-next, .single-recipe section.steps .swiper-button-prev {
   top: 97%;
   width: 27px;

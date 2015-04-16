@@ -1,5 +1,18 @@
 ( function( $ ) {
-    $(document).ready(function () {
+    function getSlideMaxHeight( $slides ) {
+        return maxHeight = Math.max.apply( null, $slides.map( function ()
+        {
+            return $( this ).height();
+        }).get() );
+    }
+
+
+    function resizeStepSwiper() {
+        var maxHeight = getSlideMaxHeight( $( '.steps .slide-container' ) );
+        $( '.steps .swiper-container' ).height( maxHeight + 42 );
+    }
+
+    $( document ).ready( function () {
         var latestSwiper = new Swiper('.latest .swiper-container', {
             // Optional parameters
             direction: 'horizontal',
@@ -11,7 +24,7 @@
 
             // Pagination
             pagination: '.latest .swiper-pagination',
-            paginationClickable: true,
+            paginationClickable: true
         });
 
         var imageSwiper = new Swiper('.intro .swiper-container', {
@@ -20,7 +33,7 @@
             effect: 'fade',
 
             nextButton: '.intro .swiper-button-next',
-            prevButton: '.intro .swiper-button-prev',
+            prevButton: '.intro .swiper-button-prev'
         });
 
         var stepSwiper = new Swiper('.steps .swiper-container', {
@@ -31,8 +44,12 @@
             prevButton: '.steps .swiper-button-prev',
 
             pagination: '.steps .swiper-pagination',
-            paginationClickable: true,
+            paginationClickable: true
         });
+        resizeStepSwiper();
     });
 
+    $( window ).resize( function() {
+        resizeStepSwiper();
+    });
 }) ( jQuery );
