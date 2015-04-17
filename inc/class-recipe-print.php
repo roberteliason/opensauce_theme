@@ -19,7 +19,7 @@ class Recipe_Print {
 		}
 
 		$barcodeobj = new TCPDF2DBarcode( $url, 'QRCODE, H');
-		echo( $barcodeobj->getBarcodeSVGcode(3, 3, '#333333') );
+		echo( $barcodeobj->getBarcodeSVGcode( 10, 10, '#EEEEEE' ) );
 	}
 
 
@@ -30,7 +30,7 @@ class Recipe_Print {
 		}
 
 		$barcodeobj = new TCPDF2DBarcode( $url, 'QRCODE, H');
-		$barcodeobj->getBarcodeSVG( 3, 3, '#333333' );
+		$barcodeobj->getBarcodeSVG( 10, 10, '#EEEEEE' );
 	}
 
 
@@ -40,7 +40,7 @@ class Recipe_Print {
 		}
 
 		$barcodeobj = new TCPDF2DBarcode( $url, 'QRCODE, H');
-		$barcodeobj->getBarcodePNG( 3, 3, array( 33, 33, 33 ) );
+		$barcodeobj->getBarcodePNG( 10, 10, array( 33, 33, 33 ) );
 	}
 
 

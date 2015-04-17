@@ -2,6 +2,7 @@
 @import "base/base";
 @import "neat/neat";
 @import "navigation";
+@import "popovers";
 @import "front-page";
 @import "grid-items";
 @import "recipe";
@@ -119,6 +120,10 @@ section.sharing {
 		border-radius: 5px;
 		margin: 0 3px;
 	}
+
+    &.qr-popup img {
+        padding: 5px;
+    }
 }
 
 

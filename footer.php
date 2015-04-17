@@ -10,9 +10,7 @@
 
 		</div>
 
-		<footer>
-			<a href="<?php the_permalink(); ?>qr/" class="qr-popup">GET QR CODE</a>
-		</footer>
+		<footer></footer>
 
 		<?php wp_footer(); ?>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -24,6 +22,12 @@
                 r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
+
+		<modals>
+			<div class="popover">
+				<div class="inner"></div>
+			</div>
+		</modals>
 
 	</body>
 </html>

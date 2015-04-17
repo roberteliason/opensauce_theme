@@ -400,6 +400,32 @@ header.navigation {
       height: 2em;
       width: 2em; }
 
+.popover {
+  display: table;
+  position: fixed;
+  background-color: rgba(1, 1, 1, 0);
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  text-align: center;
+  transition: background-color 0.25s;
+  -webkit-transition: background-color 0.25s; }
+  .popover.show {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); }
+    .popover.show .inner {
+      opacity: 1;
+      cursor: zoom-out; }
+  .popover .inner {
+    display: table-cell;
+    vertical-align: middle;
+    opacity: 0;
+    transition: opacity 0.25s;
+    -webkit-transition: opacity 0.25s; }
+
 .home .main {
   margin: 0 auto; }
 .home .latest .swiper-container {
@@ -680,6 +706,8 @@ section.sharing .body {
   border: 1px solid rgba(0, 0, 0, 0.75);
   border-radius: 5px;
   margin: 0 3px; }
+.social-media.qr-popup img {
+  padding: 5px; }
 
 /* tags */
 tag {
