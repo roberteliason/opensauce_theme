@@ -29,12 +29,14 @@ $latest = Recipe_Functions::get()->get_latest();
                 ?>
                 <div class="swiper-slide" style="background-image: url( '<?php echo $thumbnail[0] ?>' );">
                     <a href="<?php echo $link ?>">
-                        <header>
-                            <h2><?php echo $title ?></h2>
-                        </header>
-                        <div class="body">
-                            <?php echo $excerpt ?>
-                        </div>
+	                    <div class="content">
+		                    <header>
+			                    <h2><?php echo $title ?></h2>
+		                    </header>
+		                    <div class="body">
+			                    <?php echo $excerpt ?>
+		                    </div>
+	                    </div>
                     </a>
                 </div>
                 <?php endforeach; ?>
@@ -47,6 +49,10 @@ $latest = Recipe_Functions::get()->get_latest();
         </div>
     </section>
     <?php endif; ?>
+
+	<div class="widget-area">
+		<?php dynamic_sidebar( 'frontpage' ); ?>
+	</div>
 
     <a name="#sharing"></a>
     <section class="sharing">

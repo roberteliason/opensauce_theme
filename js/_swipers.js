@@ -15,8 +15,8 @@
     $( document ).ready( function () {
         var latestSwiper = new Swiper('.latest .swiper-container', {
             // Optional parameters
-            direction: 'horizontal',
             loop: true,
+            simulateTouch: false,
 
             // Navigation arrows
             nextButton: '.latest .swiper-button-next',
@@ -31,14 +31,15 @@
             loop: true,
             autoplay: 3600,
             effect: 'fade',
+            simulateTouch: false,
 
             nextButton: '.intro .swiper-button-next',
             prevButton: '.intro .swiper-button-prev'
         });
 
         var stepSwiper = new Swiper('.steps .swiper-container', {
-            direction: 'horizontal',
             loop: true,
+            simulateTouch: false,
 
             nextButton: '.steps .swiper-button-next',
             prevButton: '.steps .swiper-button-prev',

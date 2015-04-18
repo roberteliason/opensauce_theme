@@ -6,8 +6,19 @@
 	.latest {
 		.swiper-container {
             height: 320px;
+
+            .swiper-pagination-bullet {
+                border: 1px solid $base-background-color;
+            }
+
             @include media( $medium-screen-up ) {
-              height: 450px;
+                height: 450px;
+
+                .swiper-pagination {
+                    padding: 4px 0 6px 0;
+                    bottom: 0px;
+                    background-color: $base-background-color;
+                }
             }
 		}
 
@@ -18,18 +29,34 @@
 				color: white;
 			}
 
-			header, .body {
-				background-color: rgba( 0, 0, 0, 0.25 );
-				width: 50%;
-				max-width: 250px;
-			}
+            .content {
+                background-color: rgba( 0, 0, 0, 0.25 );
+                width: 50%;
+                height: 100%;
+                box-sizing: border-box;
+
+                @include media( $medium-screen-up ) {
+                    padding: 0 $base-spacing * 2;
+                }
+            }
 
             header {
                 padding: $base-spacing $base-spacing 0 $base-spacing;
+                background: transparent;
             }
 			.body {
                 padding: 0 $base-spacing $base-spacing $base-spacing;
 			}
 		}	
 	}
+
+
+    .widget-area {
+        @include outer-container;
+    }
+    .widget {
+        @include media( $medium-screen-up ) {
+            @include span-columns(6);
+        }
+    }
 }

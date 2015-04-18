@@ -265,3 +265,26 @@ header.navigation {
 		}
 	}
 }
+
+nav.posts-navigation {
+    h2 {
+        background-color: $navigation-background;
+        padding: $small-spacing;
+        margin-bottom: 0;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        @include clearfix;
+        padding: $small-spacing;
+
+        .nav-next {
+            float: right;
+        }
+
+        .nav-previous {
+            float: left;
+        }
+    }
+}

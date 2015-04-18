@@ -6,11 +6,12 @@
  */
 
 /**
- * Include custom post types
+ * Include custom post types and taxonomies
  */
 include_once( get_template_directory() . '/post-types/recipe.php' );
 include_once( get_template_directory() . '/taxonomies/ingredient.php' );
 include_once( get_template_directory() . '/taxonomies/unit.php' );
+include_once( get_template_directory() . '/taxonomies/recipe_type.php' );
 
 /**
  * Include helper classes
@@ -110,7 +111,17 @@ add_action( 'after_setup_theme', 'opensauce_setup' );
 function opensauce_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'opensauce' ),
-		'id'            => 'sidebar-1',
+		'id'            => 'sidebar',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Front Page', 'opensauce' ),
+		'id'            => 'frontpage',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',

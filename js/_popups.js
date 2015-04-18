@@ -8,14 +8,16 @@
                     url: e.currentTarget.href
                 }
             ).done( function( data ) {
-                $modal      = $( 'modals .popover' );
-                $container  = $( '.inner', $modal );
+                var $modal      = $( 'modals .popover' );
+                var $container  = $( '.inner', $modal );
                 $container.html( data );
                 $modal.toggleClass( 'show' );
             });
         });
 
         $( '.popover' ).on( 'click', function( e ) {
+            e.preventDefault();
+
             $( '.inner', this ).html( '' );
             $( this ).toggleClass( 'show' );
         });

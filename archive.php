@@ -9,14 +9,16 @@
 
 get_header(); ?>
 
-    <?php if ( have_posts() ) : ?>
+	<header class="page-header">
+	<?php
+		the_archive_title( '<h1 class="page-title">', '</h1>' );
+		the_archive_description( '<div class="taxonomy-description">', '</div>' );
+	?>
+	</header><!-- .page-header -->
 
-        <header class="page-header">
-            <?php
-                the_archive_title( '<h1 class="page-title">', '</h1>' );
-                the_archive_description( '<div class="taxonomy-description">', '</div>' );
-            ?>
-        </header><!-- .page-header -->
+	<section class="posts">
+
+    <?php if ( have_posts() ) : ?>
 
         <section class="grid-items-lines teasers">
             <?php /* Start the Loop */ ?>
@@ -28,15 +30,18 @@ get_header(); ?>
             <?php endwhile; ?>
             <div class="right-cover"></div>
             <div class="bottom-cover"></div>
-        </section>
 
-        <?php the_posts_navigation(); ?>
+        </section>
+	    <?php the_posts_navigation(); ?>
 
     <?php else : ?>
-
         <?php get_template_part( 'content', 'none' ); ?>
-
     <?php endif; ?>
+    </section>
 
-<?php get_sidebar( 'sidebar' ); ?>
+    <div class="widget-area">
+	    <?php get_sidebar( 'sidebar' ); ?>
+    </div>
+
+
 <?php get_footer(); ?>
