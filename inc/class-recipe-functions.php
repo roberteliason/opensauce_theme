@@ -55,4 +55,20 @@ class Recipe_Functions {
 
         return $terms;
     }
+
+
+	/**
+	 * Get all recipe categories for a recipe
+	 *
+	 * @param $recipe_id
+	 * @return array|bool
+	 */
+	public function get_recipe_cats( $recipe_id ) {
+		$terms = wp_get_post_terms( $recipe_id, 'recipe_type' );
+		if ( is_wp_error( $terms ) ) {
+			return false;
+		}
+
+		return $terms;
+	}
 }

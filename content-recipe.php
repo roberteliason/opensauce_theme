@@ -3,6 +3,7 @@
  * @package opensauce
  */
 $permalink = get_the_permalink();
+$cats = Recipe_Functions::get()->get_recipe_cats( get_the_ID() );
 $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 ?>
 
@@ -31,6 +32,11 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
                 <?php the_content(); ?>
             </div>
             <div class="meta">
+	            <?php if ( !empty( $cats ) ): ?>
+		            <?php foreach( $cats as $cat ): ?>
+			            <a href="/<?php echo $cat->taxonomy ?>/<?php echo $cat->slug ?>/"><cat><?php echo $cat->name ?></cat></a>
+		            <?php endforeach; ?>
+	            <?php endif; ?>
                 <?php if ( !empty( $tags ) ): ?>
                     <?php foreach( $tags as $tag ): ?>
                         <a href="/<?php echo $tag->taxonomy ?>/<?php echo $tag->slug ?>/"><tag><?php echo $tag->name ?></tag></a>

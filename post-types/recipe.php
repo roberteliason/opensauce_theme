@@ -35,7 +35,6 @@ function recipe_init() {
 		'query_var'         => true,
 		'menu_icon'         => 'dashicons-book-alt',
 	) );
-
 }
 add_action( 'init', 'recipe_init' );
 
@@ -68,6 +67,12 @@ add_filter( 'post_updated_messages', 'recipe_updated_messages' );
 add_rewrite_endpoint( 'qr', EP_RECIPE );
 
 
+/**
+ * Custom template redirect that responds to the /qr/ endpoint on recipe posts
+ * @param string $template
+ *
+ * @return string
+ */
 function opensauce_recipe_template_include( $template ) {
 	$uri_elements  = explode( '/', trim( $_SERVER['REQUEST_URI'], '/' ) );
 	$first_element = array_shift( $uri_elements );
@@ -83,3 +88,51 @@ function opensauce_recipe_template_include( $template ) {
 	return $template;
 }
 add_action( 'template_include', 'opensauce_recipe_template_include' );
+
+
+/**
+ * Hooks into the post-edit screen and adds custom columns
+ *
+ * @param $posts_columns
+ * @param $post_type
+ *
+ * @return array
+ */
+function opensauce_recipe_add_columns( $posts_columns, $post_type ) {
+	if ( 'recipe' == $post_type ) {
+		$posts_columns = array(
+			"cb"            => '<input type="checkbox" />',
+			"title"         => 'Title',
+			"recipe_type"   => __( 'Type', 'opensauce' ),
+			"date"          => __( 'Date' )
+		);
+		return $posts_columns;
+	}
+}
+add_filter( 'manage_posts_columns', 'opensauce_recipe_add_columns', 10, 2);
+
+
+/**
+ * Adds the custom column data to the rows in admin-edit
+ *
+ * @param $column_name
+ * @param $post_id
+ */
+function opensauce_recipe_add_column( $column_name, $post_id ) {
+	switch ( $column_name ) {
+		case 'recipe_type':
+			$recipe_types = get_the_terms( $post_id, 'recipe_type' );
+			if ( is_array( $recipe_types ) ) {
+				foreach ( $recipe_types as $key => $recipe_type ) {
+					$edit_link        = get_term_link( $recipe_type, 'recipe_type' );
+					$recipe_types[ $key ] = '<a href="' . $edit_link . '">' . $recipe_type->name . '</a>';
+				}
+				echo implode( ' | ', $recipe_types );
+			}
+			break;
+
+		default:
+			break;
+	}
+}
+add_action( "manage_recipe_posts_custom_column", "opensauce_recipe_add_column", 10, 2);
