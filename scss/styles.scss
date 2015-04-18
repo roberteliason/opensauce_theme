@@ -3,10 +3,10 @@
 @import "neat/neat";
 @import "navigation";
 @import "popovers";
+@import "page";
 @import "front-page";
 @import "grid-items";
 @import "recipe";
-
 
 body {
 	margin: 0;
@@ -104,12 +104,29 @@ body.archive {
         background: #aa0000;
         opacity: 1;
     }
-}
 
-.swiper-button-next, .swiper-button-prev {
-    display: none;
-    @include media( $medium-screen-up ) {
-	    display: initial;
+    .swiper-button-prev {
+        background: url( '../img/arrow-left.svg' );
+        background-size: cover;
+    }
+
+    .swiper-button-next {
+      background: url( '../img/arrow-right.svg' );
+      background-size: cover;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+        display: none;
+        height: 64px;
+        width: 64px;
+
+        .arrow {
+            fill: $chili-red;
+        }
+
+        @include media( $medium-screen-up ) {
+            display: initial;
+        }
     }
 }
 
