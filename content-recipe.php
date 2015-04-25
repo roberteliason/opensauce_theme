@@ -40,7 +40,9 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 		            <?php _e( 'Oven Temperature', 'opensauce' ) ?>: <span class="temperature"><?php echo( get_field( 'oven_temperature' ) ) ?> °C</span>
 	            <?php endif; ?>
 	            </div>
+	            <?php if( get_field( 'time' ) || get_field( 'oven_temperature' ) ): ?>
 	            <hr />
+	            <?php endif; ?>
 	            <div class="cats">
 		            <?php if ( !empty( $cats ) ): ?>
 			            <?php foreach( $cats as $cat ): ?>
@@ -154,8 +156,8 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 			    <?php if( get_row_layout() == 'gauges' ): ?>
 
 				    <div class="gauge">
-					    <p><?php the_sub_field( 'value' ); ?></p>
-					    <h4><?php the_sub_field( 'label' ); ?></h4>
+					    <p><?php the_sub_field( 'value' ); ?>%</p>
+					    <strong><?php the_sub_field( 'label' ); ?></strong>
 				    </div>
 
 			    <?php endif ;?>
@@ -163,9 +165,10 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 			    <?php if( get_row_layout() == 'ratings' ): ?>
 
 				    <div class="rating">
-					    <p><?php the_sub_field( 'number' ); ?></p>
-					    <p><?php the_sub_field( 'icon' ); ?></p>
-					    <p><?php the_sub_field( 'max_number' ); ?></p>
+					    <p><?php the_sub_field( 'number' ); ?> <?php the_sub_field( 'icon' ); ?> of <?php the_sub_field( 'max_number' ); ?></p>
+					    <blockquote>
+						    <?php the_sub_field( 'text' ); ?>
+					    </blockquote>
 				    </div>
 
 			    <?php endif ;?>

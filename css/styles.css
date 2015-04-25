@@ -669,6 +669,25 @@ nav.posts-navigation .nav-links {
         margin-right: 0; } }
 .single-recipe section.nonsense header {
   background-color: teal; }
+.single-recipe section.nonsense .content {
+  padding: 1.5rem;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .single-recipe section.nonsense .content::after {
+    clear: both;
+    content: "";
+    display: table; }
+  @media screen and (min-width: 40em) {
+    .single-recipe section.nonsense .content .factoid, .single-recipe section.nonsense .content .gauge, .single-recipe section.nonsense .content .rating {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%; }
+      .single-recipe section.nonsense .content .factoid:last-child, .single-recipe section.nonsense .content .gauge:last-child, .single-recipe section.nonsense .content .rating:last-child {
+        margin-right: 0; } }
+  .single-recipe section.nonsense .content .gauge, .single-recipe section.nonsense .content .rating {
+    text-align: center; }
 
 body {
   margin: 0; }
@@ -811,5 +830,26 @@ hr {
   margin-top: 0.75em;
   margin-bottom: -webkit-calc(0.75em - 1px);
   margin-bottom: calc(0.75em - 1px); }
+
+blockquote {
+  top: -1rem;
+  font-family: "Georgia Pro", Georgia, Times, serif; }
+  blockquote:before, blockquote:after {
+    display: block;
+    position: relative;
+    font-size: 3rem;
+    line-height: 0;
+    color: #ddd; }
+  blockquote:before {
+    content: '\201C';
+    left: -50%;
+    top: 1rem; }
+  blockquote:after {
+    content: '\201D';
+    left: 50%;
+    top: -0.5rem; }
+  blockquote p {
+    padding: 0 0.75rem;
+    font-family: "Exo", Arial, sans-serif; }
 
 /*# sourceMappingURL=styles.css.map */

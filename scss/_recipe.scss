@@ -103,6 +103,21 @@
 			header {
 				background-color: teal;
 			}
+
+            .content {
+                padding: $base-spacing;
+                @include outer-container;
+
+                .factoid, .gauge, .rating {
+                    @include media( $medium-screen-up ) {
+                        @include span-columns( 3 );
+                    }
+                }
+
+                .gauge, .rating {
+                    text-align: center;
+                }
+            }
 		}		
 	}
 }

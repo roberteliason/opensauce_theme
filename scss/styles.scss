@@ -196,3 +196,33 @@ hr {
     margin-top: 0.75em;
     @include calc(margin-bottom, "0.75em - 1px");
 }
+
+blockquote {
+    top: -1rem;
+    font-family: "Georgia Pro", Georgia, Times, serif;
+
+    &:before, &:after {
+        display: block;
+        position: relative;
+        font-size: 3rem;
+        line-height: 0;
+        color: $light-gray;
+    }
+
+    &:before {
+        content:  '\201C';
+        left: -50%;
+        top: 1rem;
+    }
+
+    &:after {
+        content: '\201D';
+        left: 50%;
+        top: -0.5rem;
+    }
+
+    p {
+        padding: 0 $small-spacing;
+        font-family: $base-font-family;
+    }
+}
