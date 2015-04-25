@@ -175,16 +175,24 @@ section.sharing {
 tag {
     display: inline-block;
     padding: 0 $small-spacing;
+    margin-bottom: 0.5rem;
     background-color: $navigation-background;
     color: $base-background-color;
     border-radius: $base-border-radius;
 }
 
-/* cats */
+/* cats (meow) */
 cat {
     display: inline-block;
     padding: 0 $small-spacing;
+    margin-bottom: 0.5rem;
     background-color: $chili-red;
     color: $base-background-color;
     border-radius: $base-border-radius;
+}
+
+
+hr {
+    margin-top: 0.75em;
+    @include calc(margin-bottom, "0.75em - 1px");
 }

@@ -793,16 +793,23 @@ section.sharing .body {
 tag {
   display: inline-block;
   padding: 0 0.75rem;
+  margin-bottom: 0.5rem;
   background-color: #333;
   color: #fff;
   border-radius: 3px; }
 
-/* cats */
+/* cats (meow) */
 cat {
   display: inline-block;
   padding: 0 0.75rem;
+  margin-bottom: 0.5rem;
   background-color: #a00;
   color: #fff;
   border-radius: 3px; }
+
+hr {
+  margin-top: 0.75em;
+  margin-bottom: -webkit-calc(0.75em - 1px);
+  margin-bottom: calc(0.75em - 1px); }
 
 /*# sourceMappingURL=styles.css.map */

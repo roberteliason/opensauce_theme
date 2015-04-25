@@ -32,16 +32,29 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
                 <?php the_content(); ?>
             </div>
             <div class="meta">
-	            <?php if ( !empty( $cats ) ): ?>
-		            <?php foreach( $cats as $cat ): ?>
-			            <a href="/<?php echo $cat->taxonomy ?>/<?php echo $cat->slug ?>/"><cat><?php echo $cat->name ?></cat></a>
-		            <?php endforeach; ?>
+	            <div class="attributes">
+	            <?php if( get_field( 'time' ) ): ?>
+		            <?php _e( 'Preparation time', 'opensauce' ) ?>: <span class="time"><?php echo( get_field( 'time' ) ) ?> <?php _e( 'minutes', 'opensauce' ) ?></span><br />
 	            <?php endif; ?>
-                <?php if ( !empty( $tags ) ): ?>
-                    <?php foreach( $tags as $tag ): ?>
-                        <a href="/<?php echo $tag->taxonomy ?>/<?php echo $tag->slug ?>/"><tag><?php echo $tag->name ?></tag></a>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+	            <?php if( get_field( 'oven_temperature' ) ): ?>
+		            <?php _e( 'Oven Temperature', 'opensauce' ) ?>: <span class="temperature"><?php echo( get_field( 'oven_temperature' ) ) ?> °C</span>
+	            <?php endif; ?>
+	            </div>
+	            <hr />
+	            <div class="cats">
+		            <?php if ( !empty( $cats ) ): ?>
+			            <?php foreach( $cats as $cat ): ?>
+				            <a href="/<?php echo $cat->taxonomy ?>/<?php echo $cat->slug ?>/"><cat><?php echo $cat->name ?></cat></a>
+			            <?php endforeach; ?>
+		            <?php endif; ?>
+	            </div>
+	            <div class="tags">
+		            <?php if ( !empty( $tags ) ): ?>
+			            <?php foreach( $tags as $tag ): ?>
+				            <a href="/<?php echo $tag->taxonomy ?>/<?php echo $tag->slug ?>/"><tag><?php echo $tag->name ?></tag></a>
+			            <?php endforeach; ?>
+		            <?php endif; ?>
+	            </div>
             </div>
         </div>
     </section>
@@ -118,6 +131,7 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
         <?php endif; ?>
     </div>
 
+	<?php if( have_rows( 'fun_facts' ) ): ?>
     <a name="nonsense"></a>
     <section class="nonsense">
         <header>
@@ -125,7 +139,41 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
                 <h2>Nonsense</h2>
             </a>
         </header>
+	    <div class="content">
+		    <?php while( the_flexible_field( 'fun_facts' ) ): ?>
+
+			    <?php if( get_row_layout() == 'factoids' ): ?>
+
+				    <div class="factoid">
+					    <h4><?php the_sub_field( 'label' ); ?></h4>
+					    <p><?php the_sub_field( 'text' ); ?></p>
+				    </div>
+
+			    <?php endif ;?>
+
+			    <?php if( get_row_layout() == 'gauges' ): ?>
+
+				    <div class="gauge">
+					    <p><?php the_sub_field( 'value' ); ?></p>
+					    <h4><?php the_sub_field( 'label' ); ?></h4>
+				    </div>
+
+			    <?php endif ;?>
+
+			    <?php if( get_row_layout() == 'ratings' ): ?>
+
+				    <div class="rating">
+					    <p><?php the_sub_field( 'number' ); ?></p>
+					    <p><?php the_sub_field( 'icon' ); ?></p>
+					    <p><?php the_sub_field( 'max_number' ); ?></p>
+				    </div>
+
+			    <?php endif ;?>
+
+		    <?php endwhile; ?>
+	    </div>
     </section>
+	<?php endif; ?>
 
     <a name="#sharing"></a>
     <section class="sharing">
