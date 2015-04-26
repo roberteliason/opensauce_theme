@@ -11,8 +11,16 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {
-          'js/main.min.js': ['js/_swipers.js', 'js/_navigation.js', 'js/_recipe.js', 'js/_popups.js']
+          'js/main.min.js': ['js/_swipers.js', 'js/_navigation.js', 'js/_recipe.js', 'js/_popups.js', 'js/_gauge.js']
         }
+      }
+    },
+    concat: {
+      dist: {
+        src: [
+            'js/_*.js'
+        ],
+        dest: 'js/main.js'
       }
     },
     watch: {
@@ -22,12 +30,13 @@ module.exports = function(grunt) {
       },
       js: {
         files: '**/_*.js',
-        tasks: ['uglify']
+        tasks: ['concat', 'uglify']
       }
     }
   });
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.registerTask('default',['watch']);
 }

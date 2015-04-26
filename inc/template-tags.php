@@ -266,8 +266,31 @@ add_action( 'edit_category', 'opensauce_category_transient_flusher' );
 add_action( 'save_post',     'opensauce_category_transient_flusher' );
 
 
+/**
+ * Render an image tag
+ *
+ * @param $file_name
+ * @param $description
+ */
 function opensauce_render_image( $file_name, $description ) {
     ?>
     <img src="<?php echo get_template_directory_uri() ?>/img/<?php echo $file_name ?>" alt="<?php echo $description ?>">
     <?php
+}
+
+
+/**
+ * Output a SVG-file via an include
+ *
+ * @param $svg_file
+ */
+function opensauce_render_svg( $svg_file ) {
+	$file_path = get_template_directory() . '/img/' . $svg_file;
+
+	if ( is_file( $file_path ) ) {
+		include( $file_path );
+	} else {
+		_e( 'SVG not found', 'arctic-windows' );
+	}
+
 }

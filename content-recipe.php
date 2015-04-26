@@ -147,17 +147,17 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 			    <?php if( get_row_layout() == 'factoids' ): ?>
 
 				    <div class="factoid">
-					    <h4><?php the_sub_field( 'label' ); ?></h4>
-					    <p><?php the_sub_field( 'text' ); ?></p>
+					    <h4><?php the_sub_field( 'label' ) ?></h4>
+					    <p><?php the_sub_field( 'text' ) ?></p>
 				    </div>
 
 			    <?php endif ;?>
 
 			    <?php if( get_row_layout() == 'gauges' ): ?>
 
-				    <div class="gauge">
-					    <p><?php the_sub_field( 'value' ); ?>%</p>
-					    <strong><?php the_sub_field( 'label' ); ?></strong>
+				    <div class="gauge" data-value="<?php the_sub_field( 'value' ) ?>">
+					    <?php opensauce_render_svg( 'gauge.svg' ) ?>
+					    <strong><?php the_sub_field( 'label' ) ?></strong>
 				    </div>
 
 			    <?php endif ;?>
@@ -165,9 +165,9 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 			    <?php if( get_row_layout() == 'ratings' ): ?>
 
 				    <div class="rating">
-					    <p><?php the_sub_field( 'number' ); ?> <?php the_sub_field( 'icon' ); ?> of <?php the_sub_field( 'max_number' ); ?></p>
+					    <p><?php the_sub_field( 'number' ) ?> <?php the_sub_field( 'icon' ) ?> of <?php the_sub_field( 'max_number' ) ?></p>
 					    <blockquote>
-						    <?php the_sub_field( 'text' ); ?>
+						    <?php the_sub_field( 'text' ) ?>
 					    </blockquote>
 				    </div>
 

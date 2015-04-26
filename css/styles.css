@@ -688,6 +688,9 @@ nav.posts-navigation .nav-links {
         margin-right: 0; } }
   .single-recipe section.nonsense .content .gauge, .single-recipe section.nonsense .content .rating {
     text-align: center; }
+  .single-recipe section.nonsense .content .gauge svg {
+    display: block;
+    margin: 0 auto; }
 
 body {
   margin: 0; }
