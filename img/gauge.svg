@@ -4,6 +4,7 @@
             <path />
         </clippath>
     </defs>
-    <circle r="0" cx="0" cy="0" stroke="none" stroke-width="0" fill="none" clip-path="url(#gaugeMask)" />
+    <circle id="track" r="0" cx="0" cy="0" stroke="none" stroke-width="0" fill="none" />
+    <circle id="fill" r="0" cx="0" cy="0" stroke="none" stroke-width="0" fill="none" clip-path="url(#gaugeMask)" />
     <text class="value"></text>
 </svg>

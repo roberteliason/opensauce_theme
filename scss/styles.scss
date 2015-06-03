@@ -1,6 +1,7 @@
 @import "bourbon/bourbon";
 @import "base/base";
 @import "neat/neat";
+@import "mixins";
 @import "navigation";
 @import "popovers";
 @import "page";
@@ -207,18 +208,20 @@ blockquote {
         font-size: 3rem;
         line-height: 0;
         color: $light-gray;
+        text-align: initial;
     }
 
     &:before {
         content:  '\201C';
-        left: -50%;
+        left: -1.33rem;
         top: 1rem;
     }
 
     &:after {
         content: '\201D';
-        left: 50%;
+        left: 0;
         top: -0.5rem;
+        margin-left: 100%;
     }
 
     p {

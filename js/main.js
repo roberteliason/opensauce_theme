@@ -63,11 +63,19 @@
         $( '.gaugeMask', $gauge )
             .attr( 'id', 'mask'+number );
 
-        $( 'circle', $gauge )
+        $( '#track', $gauge )
+            .attr( 'r', radius - ( strokeWidth / 4 ) )
+            .attr( 'cx', centerX )
+            .attr( 'cy', centerY )
+            .attr( 'stroke', 'rgba( 0,0,0,0.25 )' )
+            .attr( 'stroke-width', strokeWidth / 2 )
+            .attr( 'fill', 'none' );
+
+        $( '#fill', $gauge )
             .attr( 'r', radius )
             .attr( 'cx', centerX )
             .attr( 'cy', centerY )
-            .attr( 'stroke', 'rgba( 0,0,0,0.5 )' )
+            .attr( 'stroke', 'rgb( 176, 0, 0 )' )
             .attr( 'stroke-width', strokeWidth )
             .attr( 'fill', 'none' )
             .attr( 'clip-path', 'url(#mask'+number+')' );

@@ -105,13 +105,37 @@
 			}
 
             .content {
-                padding: $base-spacing;
                 @include outer-container;
+				@include media( $medium-screen-up ) {
+					padding: $base-spacing;
+				}
 
                 .factoid, .gauge, .rating {
-                    @include media( $medium-screen-up ) {
-                        @include span-columns( 3 );
+					@include media( $large-screen-up ) {
+						@include span-columns( 3 );
+						@include omega( 4n );
+						border: none;
+					}
+
+                    @include media( min-width $medium-screen max-width $large-screen ) {
+                        @include span-columns( 6 );
+					    @include omega( 2n );
+						border: none;
                     }
+
+					min-height: 200px;
+					padding-bottom: $base-spacing;
+					margin-bottom: $base-spacing / 2;
+					border-bottom: 1px solid $light-gray;
+					&:last-child {
+						margin-bottom: 0;
+						border: none;
+					}
+
+					.inner {
+						@include vertical-align( 100px );
+						text-align: center;
+					}
                 }
 
                 .gauge, .rating {
@@ -121,6 +145,26 @@
                 .gauge svg {
                     display: block;
                     margin: 0 auto;
+                }
+
+                .rating {
+					.icons {
+						text-align: center;
+					}
+
+                    .icon-holder {
+						display: inline-block;
+						max-width: 2rem;
+						height: auto;
+						opacity: 0.25;
+						&.active {
+							opacity: initial;
+						}
+					}
+
+					blockquote {
+						margin-top: 0;
+					}
                 }
             }
 		}		

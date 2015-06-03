@@ -147,8 +147,10 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 			    <?php if( get_row_layout() == 'factoids' ): ?>
 
 				    <div class="factoid">
-					    <h4><?php the_sub_field( 'label' ) ?></h4>
-					    <p><?php the_sub_field( 'text' ) ?></p>
+					    <div class="inner">
+						    <h4><?php the_sub_field( 'label' ) ?></h4>
+						    <p><?php the_sub_field( 'text' ) ?></p>
+					    </div>
 				    </div>
 
 			    <?php endif ;?>
@@ -156,8 +158,10 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 			    <?php if( get_row_layout() == 'gauges' ): ?>
 
 				    <div class="gauge" data-value="<?php the_sub_field( 'value' ) ?>">
-					    <?php opensauce_render_svg( 'gauge.svg' ) ?>
-					    <strong><?php the_sub_field( 'label' ) ?></strong>
+						<div class="inner">
+							<?php opensauce_render_svg( 'gauge.svg' ) ?>
+							<strong><?php the_sub_field( 'label' ) ?></strong>
+						</div>
 				    </div>
 
 			    <?php endif ;?>
@@ -165,10 +169,29 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 			    <?php if( get_row_layout() == 'ratings' ): ?>
 
 				    <div class="rating">
-					    <p><?php the_sub_field( 'number' ) ?> <?php the_sub_field( 'icon' ) ?> of <?php the_sub_field( 'max_number' ) ?></p>
-					    <blockquote>
-						    <?php the_sub_field( 'text' ) ?>
-					    </blockquote>
+					    <div class="inner">
+						    <div class="icons">
+							    <?php
+							    $rating     = (int) get_sub_field( 'number' );
+							    $max_rating = (int) get_sub_field( 'max_number' );
+							    $icon       = get_sub_field( 'icon' );
+							    ?>
+							    <?php for( $i = 1; $i < $max_rating+1; $i++ ): ?>
+								    <?php
+								    $active = 'active';
+								    if ( $i > $rating ) {
+									    $active = '';
+								    }
+								    ?>
+								    <div class="icon-holder <?php echo $active ?>">
+									    <?php opensauce_render_image( 'chili_pepper.png', $icon ) ?>
+								    </div>
+							    <?php endfor; ?>
+						    </div>
+						    <blockquote>
+							    <?php the_sub_field( 'text' ) ?>
+						    </blockquote>
+					    </div>
 				    </div>
 
 			    <?php endif ;?>

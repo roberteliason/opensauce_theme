@@ -670,7 +670,6 @@ nav.posts-navigation .nav-links {
 .single-recipe section.nonsense header {
   background-color: teal; }
 .single-recipe section.nonsense .content {
-  padding: 1.5rem;
   max-width: 68em;
   margin-left: auto;
   margin-right: auto; }
@@ -679,18 +678,65 @@ nav.posts-navigation .nav-links {
     content: "";
     display: table; }
   @media screen and (min-width: 40em) {
-    .single-recipe section.nonsense .content .factoid, .single-recipe section.nonsense .content .gauge, .single-recipe section.nonsense .content .rating {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 23.23176%; }
-      .single-recipe section.nonsense .content .factoid:last-child, .single-recipe section.nonsense .content .gauge:last-child, .single-recipe section.nonsense .content .rating:last-child {
-        margin-right: 0; } }
+    .single-recipe section.nonsense .content {
+      padding: 1.5rem; } }
+  .single-recipe section.nonsense .content .factoid, .single-recipe section.nonsense .content .gauge, .single-recipe section.nonsense .content .rating {
+    min-height: 200px;
+    padding-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #ddd; }
+    @media screen and (min-width: 53.75em) {
+      .single-recipe section.nonsense .content .factoid, .single-recipe section.nonsense .content .gauge, .single-recipe section.nonsense .content .rating {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 23.23176%;
+        border: none; }
+        .single-recipe section.nonsense .content .factoid:last-child, .single-recipe section.nonsense .content .gauge:last-child, .single-recipe section.nonsense .content .rating:last-child {
+          margin-right: 0; }
+        .single-recipe section.nonsense .content .factoid:nth-child(4n), .single-recipe section.nonsense .content .gauge:nth-child(4n), .single-recipe section.nonsense .content .rating:nth-child(4n) {
+          margin-right: 0; }
+        .single-recipe section.nonsense .content .factoid:nth-child(4n+1), .single-recipe section.nonsense .content .gauge:nth-child(4n+1), .single-recipe section.nonsense .content .rating:nth-child(4n+1) {
+          clear: left; } }
+    @media screen and (min-width: 40em) and (max-width: 53.75em) {
+      .single-recipe section.nonsense .content .factoid, .single-recipe section.nonsense .content .gauge, .single-recipe section.nonsense .content .rating {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 48.82117%;
+        border: none; }
+        .single-recipe section.nonsense .content .factoid:last-child, .single-recipe section.nonsense .content .gauge:last-child, .single-recipe section.nonsense .content .rating:last-child {
+          margin-right: 0; }
+        .single-recipe section.nonsense .content .factoid:nth-child(2n), .single-recipe section.nonsense .content .gauge:nth-child(2n), .single-recipe section.nonsense .content .rating:nth-child(2n) {
+          margin-right: 0; }
+        .single-recipe section.nonsense .content .factoid:nth-child(2n+1), .single-recipe section.nonsense .content .gauge:nth-child(2n+1), .single-recipe section.nonsense .content .rating:nth-child(2n+1) {
+          clear: left; } }
+    .single-recipe section.nonsense .content .factoid:last-child, .single-recipe section.nonsense .content .gauge:last-child, .single-recipe section.nonsense .content .rating:last-child {
+      margin-bottom: 0;
+      border: none; }
+    .single-recipe section.nonsense .content .factoid .inner, .single-recipe section.nonsense .content .gauge .inner, .single-recipe section.nonsense .content .rating .inner {
+      position: relative;
+      top: 100px;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      text-align: center; }
   .single-recipe section.nonsense .content .gauge, .single-recipe section.nonsense .content .rating {
     text-align: center; }
   .single-recipe section.nonsense .content .gauge svg {
     display: block;
     margin: 0 auto; }
+  .single-recipe section.nonsense .content .rating .icons {
+    text-align: center; }
+  .single-recipe section.nonsense .content .rating .icon-holder {
+    display: inline-block;
+    max-width: 2rem;
+    height: auto;
+    opacity: 0.25; }
+    .single-recipe section.nonsense .content .rating .icon-holder.active {
+      opacity: initial; }
+  .single-recipe section.nonsense .content .rating blockquote {
+    margin-top: 0; }
 
 body {
   margin: 0; }
@@ -842,15 +888,17 @@ blockquote {
     position: relative;
     font-size: 3rem;
     line-height: 0;
-    color: #ddd; }
+    color: #ddd;
+    text-align: initial; }
   blockquote:before {
     content: '\201C';
-    left: -50%;
+    left: -1.33rem;
     top: 1rem; }
   blockquote:after {
     content: '\201D';
-    left: 50%;
-    top: -0.5rem; }
+    left: 0;
+    top: -0.5rem;
+    margin-left: 100%; }
   blockquote p {
     padding: 0 0.75rem;
     font-family: "Exo", Arial, sans-serif; }
