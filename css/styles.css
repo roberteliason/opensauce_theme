@@ -443,61 +443,82 @@ nav.posts-navigation .nav-links {
     transition: opacity 0.25s;
     -webkit-transition: opacity 0.25s; }
 
-.page article {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 48.82117%;
-  margin-left: 25.58941%; }
-  .page article:last-child {
-    margin-right: 0; }
-
-.home .main {
-  margin: 0 auto; }
-.home .latest .swiper-container {
-  height: 320px; }
-  .home .latest .swiper-container .swiper-pagination-bullet {
-    border: 1px solid #fff; }
-  @media screen and (min-width: 40em) {
-    .home .latest .swiper-container {
-      height: 450px; }
-      .home .latest .swiper-container .swiper-pagination {
-        padding: 4px 0 6px 0;
-        bottom: 0px;
-        background-color: #fff; } }
-.home .latest .swiper-slide a {
-  display: block;
-  height: 100%;
-  color: white; }
-.home .latest .swiper-slide .content {
-  background-color: rgba(0, 0, 0, 0.25);
-  width: 50%;
-  height: 100%;
-  box-sizing: border-box; }
-  @media screen and (min-width: 40em) {
-    .home .latest .swiper-slide .content {
-      padding: 0 3rem; } }
-.home .latest .swiper-slide header {
-  padding: 1.5rem 1.5rem 0 1.5rem;
-  background: transparent; }
-.home .latest .swiper-slide .body {
-  padding: 0 1.5rem 1.5rem 1.5rem; }
-.home .widget-area {
+.page-template-default .main {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto; }
-  .home .widget-area::after {
+  .page-template-default .main::after {
     clear: both;
     content: "";
     display: table; }
-@media screen and (min-width: 40em) {
-  .home .widget {
-    float: left;
+  .page-template-default .main article {
+    padding: 0 1.5rem; }
+    @media screen and (min-width: 40em) {
+      .page-template-default .main article {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 48.82117%;
+        margin-left: 25.58941%;
+        padding: 0; }
+        .page-template-default .main article:last-child {
+          margin-right: 0; } }
+
+.home.page-template-default .main {
+  margin: 0 auto; }
+  .home.page-template-default .main .latest .swiper-container {
+    height: 320px; }
+    .home.page-template-default .main .latest .swiper-container .swiper-pagination-bullet {
+      border: 1px solid #fff; }
+    @media screen and (min-width: 40em) {
+      .home.page-template-default .main .latest .swiper-container {
+        height: 450px; }
+        .home.page-template-default .main .latest .swiper-container .swiper-pagination {
+          padding: 4px 0 6px 0;
+          bottom: 0px;
+          background-color: #fff; } }
+  .home.page-template-default .main .latest .swiper-slide a {
     display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
-    .home .widget:last-child {
-      margin-right: 0; } }
+    height: 100%;
+    color: white; }
+  .home.page-template-default .main .latest .swiper-slide .content {
+    background-color: rgba(0, 0, 0, 0.25);
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box; }
+    @media screen and (min-width: 40em) {
+      .home.page-template-default .main .latest .swiper-slide .content {
+        padding: 0 3rem; } }
+  .home.page-template-default .main .latest .swiper-slide header {
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    background: transparent; }
+  .home.page-template-default .main .latest .swiper-slide .body {
+    padding: 0 1.5rem 1.5rem 1.5rem; }
+  .home.page-template-default .main .page-content {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto; }
+    .home.page-template-default .main .page-content::after {
+      clear: both;
+      content: "";
+      display: table; }
+    @media screen and (min-width: 40em) {
+      .home.page-template-default .main .page-content article {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 65.88078%;
+        margin-left: 0; }
+        .home.page-template-default .main .page-content article:last-child {
+          margin-right: 0; } }
+    @media screen and (min-width: 40em) {
+      .home.page-template-default .main .page-content .widget-area {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 31.76157%; }
+        .home.page-template-default .main .page-content .widget-area:last-child {
+          margin-right: 0; } }
 
 .grid-items-lines {
   position: relative; }

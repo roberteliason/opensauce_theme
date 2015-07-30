@@ -17,7 +17,7 @@ $latest = Recipe_Functions::get()->get_latest();
 ?>
 
     <?php if ( false !== $latest ) : ?>
-    <section class="latest">
+    <div class="latest">
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <?php
@@ -47,11 +47,19 @@ $latest = Recipe_Functions::get()->get_latest();
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
         </div>
-    </section>
+    </div>
     <?php endif; ?>
 
-	<div class="widget-area">
-		<?php dynamic_sidebar( 'frontpage' ); ?>
+	<div class="page-content">
+		<?php while ( have_posts() ) : the_post(); ?>
+
+			<?php get_template_part( 'content', 'page' ); ?>
+
+		<?php endwhile; // end of the loop. ?>
+
+		<div class="widget-area">
+			<?php dynamic_sidebar( 'frontpage' ); ?>
+		</div>
 	</div>
 
     <a name="#sharing"></a>

@@ -290,7 +290,7 @@ function opensauce_render_svg( $svg_file ) {
 	if ( is_file( $file_path ) ) {
 		include( $file_path );
 	} else {
-		_e( 'SVG not found', 'arctic-windows' );
+		_e( 'SVG not found', 'opensauce' );
 	}
 
 }
