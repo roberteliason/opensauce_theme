@@ -7,7 +7,7 @@ $cats = Recipe_Functions::get()->get_recipe_cats( get_the_ID() );
 $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>  itemscope itemtype="http://schema.org/Recipe">
     <section class="intro">
         <?php if( have_rows( 'images' ) ): ?>
         <div class="swiper-container">
@@ -25,16 +25,16 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
         <?php endif; ?>
 
         <header>
-            <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+            <?php the_title( '<h1 class="entry-title" itemprop="name">', '</h1>' ); ?>
         </header>
         <div class="columns">
-            <div class="body">
+            <div class="body" itemprop="description">
                 <?php the_content(); ?>
             </div>
             <div class="meta">
 	            <div class="attributes">
 	            <?php if( get_field( 'time' ) ): ?>
-		            <?php _e( 'Preparation time', 'opensauce' ) ?>: <span class="time"><?php echo( get_field( 'time' ) ) ?> <?php _e( 'minutes', 'opensauce' ) ?></span><br />
+		            <?php _e( 'Total time', 'opensauce' ) ?>: <meta itemprop="totalTime" content="PT<?php echo( get_field( 'time' ) ) ?>M"><span class="time"><?php echo( get_field( 'time' ) ) ?> <?php _e( 'minutes', 'opensauce' ) ?></span><br />
 	            <?php endif; ?>
 	            <?php if( get_field( 'oven_temperature' ) ): ?>
 		            <?php _e( 'Oven Temperature', 'opensauce' ) ?>: <span class="temperature"><?php echo( get_field( 'oven_temperature' ) ) ?> °C</span>
@@ -46,7 +46,7 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 	            <div class="cats">
 		            <?php if ( !empty( $cats ) ): ?>
 			            <?php foreach( $cats as $cat ): ?>
-				            <a href="/<?php echo $cat->taxonomy ?>/<?php echo $cat->slug ?>/"><cat><?php echo $cat->name ?></cat></a>
+				            <a href="/<?php echo $cat->taxonomy ?>/<?php echo $cat->slug ?>/"  itemprop="recipeCategory"><cat><?php echo $cat->name ?></cat></a>
 			            <?php endforeach; ?>
 		            <?php endif; ?>
 	            </div>
@@ -84,7 +84,7 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
                         $unit       = get_sub_field( 'unit' );
                         $ingredient = get_sub_field( 'ingredient' );
                     ?>
-                    <tr>
+                    <tr itemprop="recipeIngredient">
                         <td class="amount"><?php echo $amount ?>&nbsp;<?php echo $unit->name ?></td>
                         <td class="ingredient"><?php echo $ingredient ?></td>
                     </tr>
@@ -106,7 +106,7 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
             </header>
 
             <div class="swiper-container">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper" itemprop="recipeInstructions">
                     <?php
                         $step = 1;
                         while( have_rows( 'steps' ) ): the_row();
