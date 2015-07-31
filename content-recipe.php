@@ -46,7 +46,7 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 	            <div class="cats">
 		            <?php if ( !empty( $cats ) ): ?>
 			            <?php foreach( $cats as $cat ): ?>
-				            <a href="/<?php echo $cat->taxonomy ?>/<?php echo $cat->slug ?>/"  itemprop="recipeCategory"><cat><?php echo $cat->name ?></cat></a>
+				            <a href="/<?php echo $cat->taxonomy ?>/<?php echo $cat->slug ?>/"><cat itemprop="recipeCategory"><?php echo $cat->name ?></cat></a>
 			            <?php endforeach; ?>
 		            <?php endif; ?>
 	            </div>
