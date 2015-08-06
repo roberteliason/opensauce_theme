@@ -9,164 +9,163 @@
         @include outer-container;
     }
 
-	section {
-		&.intro {
-			margin: 0;
+	.intro {
+		margin: 0;
 
-			.swiper-container {
-				height: 240px;
+		.swiper-container {
+			height: 240px;
 
-				@include media( $medium-screen-up ) {
-					height: 450px;
-				}
-			}
-
-			header {
-				background-color: transparent;
-				margin-top: -3.75em;
-				z-index: 1;
-				position: relative;
-			} 
-
-			.columns {
-                padding: 0 $small-spacing $base-spacing $small-spacing;
-                @include outer-container;
-
-                .body {
-                    padding: 0;
-                    @include media( $medium-screen-up ) {
-                      @include span-columns( 8 );
-                    }
-                }
-
-                .meta {
-                    @include media( $medium-screen-up ) {
-                        @include span-columns( 4 );
-                    }
-                }
-			}
-
-			h1 {
-				color: white;
-				text-shadow: 1px 1px 5px rgba( 0, 0, 0, 0.7 );
+			@include media( $medium-screen-up ) {
+				height: 450px;
 			}
 		}
 
-		&.ingredients {
-  			header {
-				background-color: purple;
-			}
+		header {
+			position: relative;
+			margin-top: -3.75em;
+			z-index: 1;
+			padding: $small-spacing;
+			background-color: transparent;
+		}
+
+		.columns {
+            padding: 0 $small-spacing $base-spacing $small-spacing;
+            @include outer-container;
 
             .body {
-                padding: 0 0 $small-spacing 0;
+                padding: 0;
+                @include media( $medium-screen-up ) {
+                  @include span-columns( 8 );
+                }
             }
 
-            .amount {
-                width: 25%;
-                padding-left: $small-spacing;
-            }
-
-			tbody tr.selected {
-				background-color: rgba( 0,255,0,0.25 );
-			}
-		}
-
-		&.steps {
-  			header {
-				background-color: pink;
-			}
-
-            .swiper-container {
-                height: auto;
-                min-height: 300px;
-            }
-
-            .swiper-slide {
-                height: auto;
-            }
-
-            .swiper-button-next, .swiper-button-prev {
-                top: 94.5%;
-                width: 40px;
-                height: 40px;
+            .meta {
+                @include media( $medium-screen-up ) {
+                    @include span-columns( 4 );
+                }
             }
 		}
 
-        &.ingredients, &.steps {
-            margin-bottom: $base-spacing;
-            @include media( $medium-screen-up ) {
-                @include span-columns( 6 );
-            }
+		h1 {
+			color: white;
+			text-shadow: 1px 1px 5px rgba( 0, 0, 0, 0.7 );
+		}
+	}
+
+	.ingredients {
+        header {
+			background-color: purple;
+		}
+
+        .body {
+            padding: 0 0 $small-spacing 0;
         }
 
-		&.nonsense {
-			header {
-				background-color: teal;
+        .amount {
+            width: 25%;
+            padding-left: $small-spacing;
+        }
+
+		tbody tr.selected {
+			background-color: rgba( 0,255,0,0.25 );
+		}
+	}
+
+	.steps {
+        header {
+			background-color: pink;
+		}
+
+        .swiper-container {
+            height: auto;
+            min-height: 300px;
+        }
+
+        .swiper-slide {
+            height: auto;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            top: 94.5%;
+            width: 40px;
+            height: 40px;
+        }
+	}
+
+    .ingredients, .steps {
+        margin-bottom: $base-spacing;
+        @include media( $medium-screen-up ) {
+            @include span-columns( 6 );
+        }
+    }
+
+	.nonsense {
+		header {
+			background-color: teal;
+		}
+
+        .content {
+            @include outer-container;
+			@include media( $medium-screen-up ) {
+				padding: $base-spacing;
 			}
 
-            .content {
-                @include outer-container;
-				@include media( $medium-screen-up ) {
-					padding: $base-spacing;
+            .factoid, .gauge, .rating {
+				@include media( $large-screen-up ) {
+					@include span-columns( 3 );
+					@include omega( 4n );
+					border: none;
 				}
 
-                .factoid, .gauge, .rating {
-					@include media( $large-screen-up ) {
-						@include span-columns( 3 );
-						@include omega( 4n );
-						border: none;
-					}
-
-                    @include media( min-width $medium-screen max-width $large-screen ) {
-                        @include span-columns( 6 );
-					    @include omega( 2n );
-						border: none;
-                    }
-
-					min-height: 200px;
-					padding-bottom: $base-spacing;
-					margin-bottom: $base-spacing / 2;
-					border-bottom: 1px solid $light-gray;
-					&:last-child {
-						margin-bottom: 0;
-						border: none;
-					}
-
-					.inner {
-						@include vertical-align( 100px );
-						text-align: center;
-					}
+                @include media( min-width $medium-screen max-width $large-screen ) {
+                    @include span-columns( 6 );
+				    @include omega( 2n );
+					border: none;
                 }
 
-                .gauge, .rating {
-                    text-align: center;
-                }
+				min-height: 200px;
+				padding-bottom: $base-spacing;
+				margin-bottom: $base-spacing / 2;
+				border-bottom: 1px solid $light-gray;
+				&:last-child {
+					margin-bottom: 0;
+					border: none;
+				}
 
-                .gauge svg {
-                    display: block;
-                    margin: 0 auto;
-                }
-
-                .rating {
-					.icons {
-						text-align: center;
-					}
-
-                    .icon-holder {
-						display: inline-block;
-						max-width: 2rem;
-						height: auto;
-						opacity: 0.25;
-						&.active {
-							opacity: initial;
-						}
-					}
-
-					blockquote {
-						margin-top: 0;
-					}
-                }
+				.inner {
+					@include vertical-align( 100px );
+					text-align: center;
+				}
             }
-		}		
+
+            .gauge, .rating {
+                text-align: center;
+            }
+
+            .gauge svg {
+                display: block;
+                margin: 0 auto;
+            }
+
+            .rating {
+				.icons {
+					text-align: center;
+				}
+
+                .icon-holder {
+					display: inline-block;
+					max-width: 2rem;
+					height: auto;
+					opacity: 0.25;
+					&.active {
+						opacity: initial;
+					}
+				}
+
+				blockquote {
+					margin-top: 0;
+				}
+            }
+        }
 	}
 }

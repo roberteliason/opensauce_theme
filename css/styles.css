@@ -616,147 +616,148 @@ nav.posts-navigation .nav-links {
     clear: both;
     content: "";
     display: table; }
-.single-recipe section.intro {
+.single-recipe .intro {
   margin: 0; }
-  .single-recipe section.intro .swiper-container {
+  .single-recipe .intro .swiper-container {
     height: 240px; }
     @media screen and (min-width: 40em) {
-      .single-recipe section.intro .swiper-container {
+      .single-recipe .intro .swiper-container {
         height: 450px; } }
-  .single-recipe section.intro header {
-    background-color: transparent;
+  .single-recipe .intro header {
+    position: relative;
     margin-top: -3.75em;
     z-index: 1;
-    position: relative; }
-  .single-recipe section.intro .columns {
+    padding: 0.75rem;
+    background-color: transparent; }
+  .single-recipe .intro .columns {
     padding: 0 0.75rem 1.5rem 0.75rem;
     max-width: 68em;
     margin-left: auto;
     margin-right: auto; }
-    .single-recipe section.intro .columns::after {
+    .single-recipe .intro .columns::after {
       clear: both;
       content: "";
       display: table; }
-    .single-recipe section.intro .columns .body {
+    .single-recipe .intro .columns .body {
       padding: 0; }
       @media screen and (min-width: 40em) {
-        .single-recipe section.intro .columns .body {
+        .single-recipe .intro .columns .body {
           float: left;
           display: block;
           margin-right: 2.35765%;
           width: 65.88078%; }
-          .single-recipe section.intro .columns .body:last-child {
+          .single-recipe .intro .columns .body:last-child {
             margin-right: 0; } }
     @media screen and (min-width: 40em) {
-      .single-recipe section.intro .columns .meta {
+      .single-recipe .intro .columns .meta {
         float: left;
         display: block;
         margin-right: 2.35765%;
         width: 31.76157%; }
-        .single-recipe section.intro .columns .meta:last-child {
+        .single-recipe .intro .columns .meta:last-child {
           margin-right: 0; } }
-  .single-recipe section.intro h1 {
+  .single-recipe .intro h1 {
     color: white;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); }
-.single-recipe section.ingredients header {
+.single-recipe .ingredients header {
   background-color: purple; }
-.single-recipe section.ingredients .body {
+.single-recipe .ingredients .body {
   padding: 0 0 0.75rem 0; }
-.single-recipe section.ingredients .amount {
+.single-recipe .ingredients .amount {
   width: 25%;
   padding-left: 0.75rem; }
-.single-recipe section.ingredients tbody tr.selected {
+.single-recipe .ingredients tbody tr.selected {
   background-color: rgba(0, 255, 0, 0.25); }
-.single-recipe section.steps header {
+.single-recipe .steps header {
   background-color: pink; }
-.single-recipe section.steps .swiper-container {
+.single-recipe .steps .swiper-container {
   height: auto;
   min-height: 300px; }
-.single-recipe section.steps .swiper-slide {
+.single-recipe .steps .swiper-slide {
   height: auto; }
-.single-recipe section.steps .swiper-button-next, .single-recipe section.steps .swiper-button-prev {
+.single-recipe .steps .swiper-button-next, .single-recipe .steps .swiper-button-prev {
   top: 94.5%;
   width: 40px;
   height: 40px; }
-.single-recipe section.ingredients, .single-recipe section.steps {
+.single-recipe .ingredients, .single-recipe .steps {
   margin-bottom: 1.5rem; }
   @media screen and (min-width: 40em) {
-    .single-recipe section.ingredients, .single-recipe section.steps {
+    .single-recipe .ingredients, .single-recipe .steps {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 48.82117%; }
-      .single-recipe section.ingredients:last-child, .single-recipe section.steps:last-child {
+      .single-recipe .ingredients:last-child, .single-recipe .steps:last-child {
         margin-right: 0; } }
-.single-recipe section.nonsense header {
+.single-recipe .nonsense header {
   background-color: teal; }
-.single-recipe section.nonsense .content {
+.single-recipe .nonsense .content {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto; }
-  .single-recipe section.nonsense .content::after {
+  .single-recipe .nonsense .content::after {
     clear: both;
     content: "";
     display: table; }
   @media screen and (min-width: 40em) {
-    .single-recipe section.nonsense .content {
+    .single-recipe .nonsense .content {
       padding: 1.5rem; } }
-  .single-recipe section.nonsense .content .factoid, .single-recipe section.nonsense .content .gauge, .single-recipe section.nonsense .content .rating {
+  .single-recipe .nonsense .content .factoid, .single-recipe .nonsense .content .gauge, .single-recipe .nonsense .content .rating {
     min-height: 200px;
     padding-bottom: 1.5rem;
     margin-bottom: 0.75rem;
     border-bottom: 1px solid #ddd; }
     @media screen and (min-width: 53.75em) {
-      .single-recipe section.nonsense .content .factoid, .single-recipe section.nonsense .content .gauge, .single-recipe section.nonsense .content .rating {
+      .single-recipe .nonsense .content .factoid, .single-recipe .nonsense .content .gauge, .single-recipe .nonsense .content .rating {
         float: left;
         display: block;
         margin-right: 2.35765%;
         width: 23.23176%;
         border: none; }
-        .single-recipe section.nonsense .content .factoid:last-child, .single-recipe section.nonsense .content .gauge:last-child, .single-recipe section.nonsense .content .rating:last-child {
+        .single-recipe .nonsense .content .factoid:last-child, .single-recipe .nonsense .content .gauge:last-child, .single-recipe .nonsense .content .rating:last-child {
           margin-right: 0; }
-        .single-recipe section.nonsense .content .factoid:nth-child(4n), .single-recipe section.nonsense .content .gauge:nth-child(4n), .single-recipe section.nonsense .content .rating:nth-child(4n) {
+        .single-recipe .nonsense .content .factoid:nth-child(4n), .single-recipe .nonsense .content .gauge:nth-child(4n), .single-recipe .nonsense .content .rating:nth-child(4n) {
           margin-right: 0; }
-        .single-recipe section.nonsense .content .factoid:nth-child(4n+1), .single-recipe section.nonsense .content .gauge:nth-child(4n+1), .single-recipe section.nonsense .content .rating:nth-child(4n+1) {
+        .single-recipe .nonsense .content .factoid:nth-child(4n+1), .single-recipe .nonsense .content .gauge:nth-child(4n+1), .single-recipe .nonsense .content .rating:nth-child(4n+1) {
           clear: left; } }
     @media screen and (min-width: 40em) and (max-width: 53.75em) {
-      .single-recipe section.nonsense .content .factoid, .single-recipe section.nonsense .content .gauge, .single-recipe section.nonsense .content .rating {
+      .single-recipe .nonsense .content .factoid, .single-recipe .nonsense .content .gauge, .single-recipe .nonsense .content .rating {
         float: left;
         display: block;
         margin-right: 2.35765%;
         width: 48.82117%;
         border: none; }
-        .single-recipe section.nonsense .content .factoid:last-child, .single-recipe section.nonsense .content .gauge:last-child, .single-recipe section.nonsense .content .rating:last-child {
+        .single-recipe .nonsense .content .factoid:last-child, .single-recipe .nonsense .content .gauge:last-child, .single-recipe .nonsense .content .rating:last-child {
           margin-right: 0; }
-        .single-recipe section.nonsense .content .factoid:nth-child(2n), .single-recipe section.nonsense .content .gauge:nth-child(2n), .single-recipe section.nonsense .content .rating:nth-child(2n) {
+        .single-recipe .nonsense .content .factoid:nth-child(2n), .single-recipe .nonsense .content .gauge:nth-child(2n), .single-recipe .nonsense .content .rating:nth-child(2n) {
           margin-right: 0; }
-        .single-recipe section.nonsense .content .factoid:nth-child(2n+1), .single-recipe section.nonsense .content .gauge:nth-child(2n+1), .single-recipe section.nonsense .content .rating:nth-child(2n+1) {
+        .single-recipe .nonsense .content .factoid:nth-child(2n+1), .single-recipe .nonsense .content .gauge:nth-child(2n+1), .single-recipe .nonsense .content .rating:nth-child(2n+1) {
           clear: left; } }
-    .single-recipe section.nonsense .content .factoid:last-child, .single-recipe section.nonsense .content .gauge:last-child, .single-recipe section.nonsense .content .rating:last-child {
+    .single-recipe .nonsense .content .factoid:last-child, .single-recipe .nonsense .content .gauge:last-child, .single-recipe .nonsense .content .rating:last-child {
       margin-bottom: 0;
       border: none; }
-    .single-recipe section.nonsense .content .factoid .inner, .single-recipe section.nonsense .content .gauge .inner, .single-recipe section.nonsense .content .rating .inner {
+    .single-recipe .nonsense .content .factoid .inner, .single-recipe .nonsense .content .gauge .inner, .single-recipe .nonsense .content .rating .inner {
       position: relative;
       top: 100px;
       -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
       text-align: center; }
-  .single-recipe section.nonsense .content .gauge, .single-recipe section.nonsense .content .rating {
+  .single-recipe .nonsense .content .gauge, .single-recipe .nonsense .content .rating {
     text-align: center; }
-  .single-recipe section.nonsense .content .gauge svg {
+  .single-recipe .nonsense .content .gauge svg {
     display: block;
     margin: 0 auto; }
-  .single-recipe section.nonsense .content .rating .icons {
+  .single-recipe .nonsense .content .rating .icons {
     text-align: center; }
-  .single-recipe section.nonsense .content .rating .icon-holder {
+  .single-recipe .nonsense .content .rating .icon-holder {
     display: inline-block;
     max-width: 2rem;
     height: auto;
     opacity: 0.25; }
-    .single-recipe section.nonsense .content .rating .icon-holder.active {
+    .single-recipe .nonsense .content .rating .icon-holder.active {
       opacity: initial; }
-  .single-recipe section.nonsense .content .rating blockquote {
+  .single-recipe .nonsense .content .rating blockquote {
     margin-top: 0; }
 
 body {
