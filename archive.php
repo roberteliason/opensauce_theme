@@ -16,11 +16,11 @@ get_header(); ?>
 	?>
 	</header><!-- .page-header -->
 
-	<section class="posts">
+	<div class="posts">
 
     <?php if ( have_posts() ) : ?>
 
-        <section class="grid-items-lines teasers">
+        <div class="grid-items-lines teasers">
             <?php /* Start the Loop */ ?>
             <?php while ( have_posts() ) : the_post(); ?>
                 <?php
@@ -31,13 +31,13 @@ get_header(); ?>
             <div class="right-cover"></div>
             <div class="bottom-cover"></div>
 
-        </section>
+        </div>
 	    <?php the_posts_navigation(); ?>
 
     <?php else : ?>
         <?php get_template_part( 'content', 'none' ); ?>
     <?php endif; ?>
-    </section>
+    </div>
 
     <div class="widget-area">
 	    <?php get_sidebar( 'sidebar' ); ?>

@@ -19,7 +19,7 @@
 
 <body <?php body_class(); ?>>
 
-		<header class="navigation" role="banner">
+		<header class="navigation">
 			<div class="navigation-wrapper">
 				<a href="<?php echo home_url(); ?>" class="logo">
                     <?php opensauce_render_image( 'chili_pepper.png', 'Open Sauce' ) ?>

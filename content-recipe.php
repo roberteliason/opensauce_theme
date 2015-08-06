@@ -8,7 +8,7 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>  itemscope itemtype="http://schema.org/Recipe">
-    <section class="intro">
+    <div class="intro">
         <?php if( have_rows( 'images' ) ): ?>
         <div class="swiper-container">
             <div class="swiper-wrapper">
@@ -59,7 +59,7 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 	            </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <div class="col-container">
         <?php if( have_rows( 'ingredients' ) ): ?>

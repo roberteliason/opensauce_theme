@@ -63,7 +63,7 @@
         $( '.gaugeMask', $gauge )
             .attr( 'id', 'mask'+number );
 
-        $( '#track', $gauge )
+        $( '.track', $gauge )
             .attr( 'r', radius - ( strokeWidth / 4 ) )
             .attr( 'cx', centerX )
             .attr( 'cy', centerY )
@@ -71,7 +71,7 @@
             .attr( 'stroke-width', strokeWidth / 2 )
             .attr( 'fill', 'none' );
 
-        $( '#fill', $gauge )
+        $( '.fill', $gauge )
             .attr( 'r', radius )
             .attr( 'cx', centerX )
             .attr( 'cy', centerY )

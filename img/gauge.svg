@@ -1,10 +1,10 @@
 <svg class="gauge-round" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <clippath id="gaugeMask" class="gaugeMask">
-            <path />
+        <clippath class="gaugeMask">
+            <path d="" />
         </clippath>
     </defs>
-    <circle id="track" r="0" cx="0" cy="0" stroke="none" stroke-width="0" fill="none" />
-    <circle id="fill" r="0" cx="0" cy="0" stroke="none" stroke-width="0" fill="none" clip-path="url(#gaugeMask)" />
+    <circle class="track" r="0" cx="0" cy="0" stroke="none" stroke-width="0" fill="none" />
+    <circle class="fill" r="0" cx="0" cy="0" stroke="none" stroke-width="0" fill="none" clip-path="url(.gaugeMask)" />
     <text class="value"></text>
 </svg>
