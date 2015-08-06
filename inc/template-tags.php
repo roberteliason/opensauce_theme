@@ -37,6 +37,7 @@ function the_posts_navigation() {
 }
 endif;
 
+
 if ( ! function_exists( 'the_post_navigation' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
@@ -64,6 +65,7 @@ function the_post_navigation() {
 	<?php
 }
 endif;
+
 
 if ( ! function_exists( 'opensauce_posted_on' ) ) :
 /**
@@ -97,6 +99,7 @@ function opensauce_posted_on() {
 }
 endif;
 
+
 if ( ! function_exists( 'opensauce_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
@@ -126,6 +129,7 @@ function opensauce_entry_footer() {
 	edit_post_link( __( 'Edit', 'opensauce' ), '<span class="edit-link">', '</span>' );
 }
 endif;
+
 
 if ( ! function_exists( 'the_archive_title' ) ) :
 /**
@@ -194,6 +198,7 @@ function the_archive_title( $before = '', $after = '' ) {
 }
 endif;
 
+
 if ( ! function_exists( 'the_archive_description' ) ) :
 /**
  * Shim for `the_archive_description()`.
@@ -220,6 +225,7 @@ function the_archive_description( $before = '', $after = '' ) {
 	}
 }
 endif;
+
 
 /**
  * Returns true if a blog has more than 1 category.
@@ -251,6 +257,7 @@ function opensauce_categorized_blog() {
 		return false;
 	}
 }
+
 
 /**
  * Flush out the transients used in opensauce_categorized_blog.

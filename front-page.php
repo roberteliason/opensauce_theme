@@ -62,7 +62,7 @@ $latest = Recipe_Functions::get()->get_latest();
 		</div>
 	</div>
 
-    <a name="#sharing"></a>
+    <a id="#sharing"></a>
     <section class="sharing">
         <header>
             <a href="#sharing">

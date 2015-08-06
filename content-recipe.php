@@ -97,7 +97,7 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 
 
         <?php if( have_rows( 'steps' ) ): ?>
-        <a name="steps"></a>
+        <a id="steps"></a>
         <section class="steps">
             <header>
                 <a href="#steps">
@@ -134,7 +134,7 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
     </div>
 
 	<?php if( have_rows( 'fun_facts' ) ): ?>
-    <a name="nonsense"></a>
+    <a id="nonsense"></a>
     <section class="nonsense">
         <header>
             <a href="#nonsense">
@@ -201,7 +201,7 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
     </section>
 	<?php endif; ?>
 
-    <a name="#sharing"></a>
+    <a id="#sharing"></a>
     <section class="sharing">
         <header>
             <a href="#sharing">
