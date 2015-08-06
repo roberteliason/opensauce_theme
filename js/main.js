@@ -136,8 +136,6 @@
                 var $modal      = $( $( '.modals' ).html() );
                 var $container  = $( '.inner', $modal );
 
-                console.log( $modal, $container );
-
                 $container.html( data );
                 $modal.toggleClass( 'show' );
                 $modal.on( 'click', function( e ) {
