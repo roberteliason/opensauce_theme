@@ -133,18 +133,24 @@
                     url: e.currentTarget.href
                 }
             ).done( function( data ) {
-                var $modal      = $( '.modals .popover' );
+                var $modal      = $( $( '.modals' ).html() );
                 var $container  = $( '.inner', $modal );
+
+                console.log( $modal, $container );
+
                 $container.html( data );
                 $modal.toggleClass( 'show' );
+                $modal.on( 'click', function( e ) {
+                    e.preventDefault();
+                    var $this = $( this );
+
+                    $( '.inner', $this ).html( '' );
+                    $this.toggleClass( 'show' );
+                    $this.remove();
+                });
+
+                $( 'body' ).append( $modal );
             });
-        });
-
-        $( '.popover' ).on( 'click', function( e ) {
-            e.preventDefault();
-
-            $( '.inner', this ).html( '' );
-            $( this ).toggleClass( 'show' );
         });
     });
 })( jQuery );
