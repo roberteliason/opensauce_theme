@@ -201,19 +201,35 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
     </section>
 	<?php endif; ?>
 
-    <a id="#sharing"></a>
-    <section class="sharing">
-        <header>
-            <a href="#sharing">
-                <h2>Share this</h2>
-            </a>
-        </header>
-        <div class="body">
-            <a href="https://twitter.com/home?status=<?php echo $permalink . '%20via%20%40opensauce_se' ?>" target="_blank" class="social-media twitter"><?php opensauce_render_image( 'twitter.svg', 'Twitter' ) ?></a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink ?>" target="_blank" class="social-media facebook"><?php opensauce_render_image( 'facebook.svg', 'Facebook' ) ?></a>
-	        <a href="<?php the_permalink(); ?>qr/" class="social-media qr-popup"><?php opensauce_render_image( 'qr.svg', 'QR' ) ?></a>
-        </div>
-    </section>
+    <div class="social">
+        <a id="#sharing"></a>
+        <section class="sharing">
+            <header>
+                <a href="#sharing">
+                    <h2>Share this</h2>
+                </a>
+            </header>
+            <div class="body">
+                <a href="https://twitter.com/home?status=<?php echo $permalink . '%20via%20%40opensauce_se' ?>" target="_blank" class="social-media twitter"><?php opensauce_render_image( 'twitter.svg', 'Twitter' ) ?></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink ?>" target="_blank" class="social-media facebook"><?php opensauce_render_image( 'facebook.svg', 'Facebook' ) ?></a>
+                <a href="<?php the_permalink(); ?>qr/" class="social-media qr-popup"><?php opensauce_render_image( 'qr.svg', 'QR' ) ?></a>
+            </div>
+        </section>
+
+        <a id="#follow"></a>
+        <section class="follow">
+            <header>
+                <a href="#follow">
+                    <h2>Follow us</h2>
+                </a>
+            </header>
+            <div class="body">
+                <a href="https://twitter.com/opensauce_se" target="_blank" class="social-media twitter"><?php opensauce_render_image( 'twitter.svg', 'Twitter' ) ?></a>
+                <a href="https://www.facebook.com/opensaucese" target="_blank" class="social-media facebook"><?php opensauce_render_image( 'facebook.svg', 'Facebook' ) ?></a>
+            </div>
+        </section>
+    </div>
+
 
     <!--
 	<footer class="entry-footer">

@@ -143,32 +143,49 @@ body.archive {
 	}
 }
 
+
 /* social media muck */
-section.sharing {
-	header {
-		background-color: darkkhaki;
+.social {
+	@include outer-container();
+
+	section.sharing,
+	section.follow {
+		@include media( $medium-screen-up ) {
+			@include span-columns( 6 );
+			@include omega( 2n );
+		}
+
+		header {
+			background-color: darkkhaki;
+		}
+
+		.body {
+			margin: 0;
+			padding-top: 8px;
+			background-color: $navigation-background;
+			text-align: center;
+		}
 	}
 
-	.body {
-		margin: 0;
-		padding-top: 8px;
-		background-color: $navigation-background;
-		text-align: center;
-	}
-}
-
-.social-media {
-	img {
-		width: 2em;
-		height: 2em;
-		border: 1px solid rgba( 0,0,0,0.75 );
-		border-radius: 5px;
-		margin: 0 3px;
+	section.follow {
+		header {
+			background-color: limegreen;
+		}
 	}
 
-    &.qr-popup img {
-        padding: 5px;
-    }
+	.social-media {
+		img {
+			width: 2em;
+			height: 2em;
+			border: 1px solid rgba( 0,0,0,0.75 );
+			border-radius: 5px;
+			margin: 0 3px;
+		}
+
+		&.qr-popup img {
+			padding: 5px;
+		}
+	}
 }
 
 
