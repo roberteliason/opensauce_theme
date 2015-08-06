@@ -878,13 +878,7 @@ section .body {
       width: 48.82117%; }
       .social section.sharing:last-child,
       .social section.follow:last-child {
-        margin-right: 0; }
-      .social section.sharing:nth-child(2n),
-      .social section.follow:nth-child(2n) {
-        margin-right: 0; }
-      .social section.sharing:nth-child(2n+1),
-      .social section.follow:nth-child(2n+1) {
-        clear: left; } }
+        margin-right: 0; } }
   .social section.sharing header,
   .social section.follow header {
     background-color: darkkhaki; }

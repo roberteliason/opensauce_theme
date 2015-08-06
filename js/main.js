@@ -108,15 +108,16 @@
 ( function( $ ) {
 
     $( document ).ready( function () {
-        var $menuToggle = $( '#js-mobile-menu' ).unbind();
-        $menuToggle.removeClass( "show" );
+        var $menuToggle = $( '#js-mobile-menu' )
+        var $menu = $( '.navigation-menu' );
+        $menuToggle.unbind();
+        $menu.removeClass( "show" );
 
         $menuToggle.on('click', function ( e ) {
             e.preventDefault();
-            var $this = ( this );
-            $this.slideToggle(function () {
-                if ( $this.is( ':hidden' ) ) {
-                    $this.removeAttr( 'style' );
+            $menu.slideToggle( function () {
+                if ( $menu.is( ':hidden' ) ) {
+                    $menu.removeAttr( 'style' );
                 }
             });
         });

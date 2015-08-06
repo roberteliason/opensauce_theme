@@ -146,13 +146,13 @@ body.archive {
 
 /* social media muck */
 .social {
-	@include outer-container();
+	@include outer-container;
 
 	section.sharing,
 	section.follow {
 		@include media( $medium-screen-up ) {
 			@include span-columns( 6 );
-			@include omega( 2n );
+			//@include omega( 2n );
 		}
 
 		header {
