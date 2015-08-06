@@ -173,7 +173,7 @@ section.sharing {
 
 
 /* tags */
-tag {
+.tag {
     display: inline-block;
     padding: 0 $small-spacing;
     margin-bottom: 0.5rem;
@@ -183,7 +183,7 @@ tag {
 }
 
 /* cats (meow) */
-cat {
+.cat {
     display: inline-block;
     padding: 0 $small-spacing;
     margin-bottom: 0.5rem;

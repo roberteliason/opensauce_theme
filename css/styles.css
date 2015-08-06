@@ -554,7 +554,7 @@ nav.posts-navigation .nav-links {
     height: 2.5em;
     margin-bottom: 1.2em;
     opacity: 0.2; }
-  .grid-items-lines .grid-item h1 {
+  .grid-items-lines .grid-item h2 {
     color: #333;
     font-size: 1.3em;
     margin-bottom: 0.4em; }
@@ -592,7 +592,7 @@ nav.posts-navigation .nav-links {
     background-position: center center;
     background-size: cover;
     margin-bottom: 0.75rem; }
-  .teasers .grid-item h1 {
+  .teasers .grid-item h2 {
     padding: 0 10px; }
   .teasers .grid-item p {
     max-width: 100%;
@@ -879,7 +879,7 @@ section.sharing .body {
   padding: 5px; }
 
 /* tags */
-tag {
+.tag {
   display: inline-block;
   padding: 0 0.75rem;
   margin-bottom: 0.5rem;
@@ -888,7 +888,7 @@ tag {
   border-radius: 3px; }
 
 /* cats (meow) */
-cat {
+.cat {
   display: inline-block;
   padding: 0 0.75rem;
   margin-bottom: 0.5rem;

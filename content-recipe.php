@@ -63,7 +63,7 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 
     <div class="col-container">
         <?php if( have_rows( 'ingredients' ) ): ?>
-        <a name="ingredients"></a>
+        <a id="ingredients"></a>
         <section class="ingredients">
             <header>
                 <a href="#ingredients">
