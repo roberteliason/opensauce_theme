@@ -1,5 +1,5 @@
 ( function( $ ) {
-    $(document).ready( function() {
+    $( document ).ready( function() {
         $( '.qr-popup' ).on( 'click', function( e ) {
             e.preventDefault();
 
@@ -8,7 +8,7 @@
                     url: e.currentTarget.href
                 }
             ).done( function( data ) {
-                var $modal      = $( 'modals .popover' );
+                var $modal      = $( '.modals .popover' );
                 var $container  = $( '.inner', $modal );
                 $container.html( data );
                 $modal.toggleClass( 'show' );

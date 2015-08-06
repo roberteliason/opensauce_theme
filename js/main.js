@@ -39,8 +39,8 @@
             .attr( 'd', 'M'+centerX+', '+centerY+' L'+startX+', '+startY+' A'+radius+','+radius+' 0 '+drawMode+',1 '+endX+','+endY+' z' );
 
         $( '.value', $gauge )
-            .html( Math.ceil( value ) + '<tspan>%</tspan>')
-            .find( 'tspan')
+            .html( Math.ceil( value ) + '<tspan>%</tspan>' )
+            .find( 'tspan' )
             .attr( 'font-size', '2rem' );
 
     }
@@ -107,15 +107,16 @@
 })( jQuery );
 ( function( $ ) {
 
-    $(document).ready(function () {
-        var menuToggle = $('#js-mobile-menu').unbind();
-        $('#js-navigation-menu').removeClass("show");
+    $( document ).ready( function () {
+        var $menuToggle = $( '#js-mobile-menu' ).unbind();
+        $menuToggle.removeClass( "show" );
 
-        menuToggle.on('click', function (e) {
+        $menuToggle.on('click', function ( e ) {
             e.preventDefault();
-            $('#js-navigation-menu').slideToggle(function () {
-                if ($('#js-navigation-menu').is(':hidden')) {
-                    $('#js-navigation-menu').removeAttr('style');
+            var $this = ( this );
+            $this.slideToggle(function () {
+                if ( $this.is( ':hidden' ) ) {
+                    $this.removeAttr( 'style' );
                 }
             });
         });
@@ -123,7 +124,7 @@
 
 }) ( jQuery );
 ( function( $ ) {
-    $(document).ready( function() {
+    $( document ).ready( function() {
         $( '.qr-popup' ).on( 'click', function( e ) {
             e.preventDefault();
 
@@ -132,7 +133,7 @@
                     url: e.currentTarget.href
                 }
             ).done( function( data ) {
-                var $modal      = $( 'modals .popover' );
+                var $modal      = $( '.modals .popover' );
                 var $container  = $( '.inner', $modal );
                 $container.html( data );
                 $modal.toggleClass( 'show' );
@@ -149,16 +150,16 @@
 })( jQuery );
 ( function( $ ) {
 
-    $(document).ready(function () {
-        $('.ingredients-table tbody tr').click(function (e) {
-            $(this).toggleClass('selected');
+    $( document ).ready( function () {
+        $( '.ingredients-table tbody tr' ).click( function ( e ) {
+            $( this ).toggleClass( 'selected' );
         });
     });
 
 }) ( jQuery );
 ( function( $ ) {
     function getSlideMaxHeight( $slides ) {
-        return maxHeight = Math.max.apply( null, $slides.map( function ()
+        return Math.max.apply( null, $slides.map( function ()
         {
             return $( this ).height();
         }).get() );
@@ -166,12 +167,13 @@
 
 
     function resizeStepSwiper() {
-        var maxHeight = getSlideMaxHeight( $( '.steps .slide-container' ) );
-        $( '.steps .swiper-container' ).height( maxHeight + 42 );
+        var $slideContainer = $( '.steps .slide-container' );
+        var maxHeight = getSlideMaxHeight( $slideContainer );
+        $( $slideContainer ).height( maxHeight + 42 );
     }
 
     $( document ).ready( function () {
-        var latestSwiper = new Swiper('.latest .swiper-container', {
+        var latestSwiper = new Swiper( '.latest .swiper-container', {
             // Optional parameters
             loop: true,
             simulateTouch: false,
@@ -185,7 +187,7 @@
             paginationClickable: true
         });
 
-        var imageSwiper = new Swiper('.intro .swiper-container', {
+        var imageSwiper = new Swiper( '.intro .swiper-container', {
             loop: true,
             autoplay: 3600,
             effect: 'fade',
@@ -195,7 +197,7 @@
             prevButton: '.intro .swiper-button-prev'
         });
 
-        var stepSwiper = new Swiper('.steps .swiper-container', {
+        var stepSwiper = new Swiper( '.steps .swiper-container', {
             loop: true,
             simulateTouch: false,
 

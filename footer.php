@@ -14,11 +14,11 @@
 
 		<?php wp_footer(); ?>
 
-		<modals>
+		<script type="text/template" class="modals">
 			<div class="popover">
 				<div class="inner"></div>
 			</div>
-		</modals>
+		</script>
 
 	</body>
 </html>

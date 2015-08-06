@@ -1,6 +1,6 @@
 ( function( $ ) {
     function getSlideMaxHeight( $slides ) {
-        return maxHeight = Math.max.apply( null, $slides.map( function ()
+        return Math.max.apply( null, $slides.map( function ()
         {
             return $( this ).height();
         }).get() );
@@ -8,12 +8,13 @@
 
 
     function resizeStepSwiper() {
-        var maxHeight = getSlideMaxHeight( $( '.steps .slide-container' ) );
-        $( '.steps .swiper-container' ).height( maxHeight + 42 );
+        var $slideContainer = $( '.steps .slide-container' );
+        var maxHeight = getSlideMaxHeight( $slideContainer );
+        $( $slideContainer ).height( maxHeight + 42 );
     }
 
     $( document ).ready( function () {
-        var latestSwiper = new Swiper('.latest .swiper-container', {
+        var latestSwiper = new Swiper( '.latest .swiper-container', {
             // Optional parameters
             loop: true,
             simulateTouch: false,
@@ -27,7 +28,7 @@
             paginationClickable: true
         });
 
-        var imageSwiper = new Swiper('.intro .swiper-container', {
+        var imageSwiper = new Swiper( '.intro .swiper-container', {
             loop: true,
             autoplay: 3600,
             effect: 'fade',
@@ -37,7 +38,7 @@
             prevButton: '.intro .swiper-button-prev'
         });
 
-        var stepSwiper = new Swiper('.steps .swiper-container', {
+        var stepSwiper = new Swiper( '.steps .swiper-container', {
             loop: true,
             simulateTouch: false,
 

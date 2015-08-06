@@ -39,8 +39,8 @@
             .attr( 'd', 'M'+centerX+', '+centerY+' L'+startX+', '+startY+' A'+radius+','+radius+' 0 '+drawMode+',1 '+endX+','+endY+' z' );
 
         $( '.value', $gauge )
-            .html( Math.ceil( value ) + '<tspan>%</tspan>')
-            .find( 'tspan')
+            .html( Math.ceil( value ) + '<tspan>%</tspan>' )
+            .find( 'tspan' )
             .attr( 'font-size', '2rem' );
 
     }

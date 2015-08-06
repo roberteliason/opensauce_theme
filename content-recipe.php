@@ -46,14 +46,14 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 	            <div class="cats">
 		            <?php if ( !empty( $cats ) ): ?>
 			            <?php foreach( $cats as $cat ): ?>
-				            <a href="/<?php echo $cat->taxonomy ?>/<?php echo $cat->slug ?>/"><cat itemprop="recipeCategory"><?php echo $cat->name ?></cat></a>
+				            <a href="/<?php echo $cat->taxonomy ?>/<?php echo $cat->slug ?>/"><span class="cat" itemprop="recipeCategory"><?php echo $cat->name ?></span></a>
 			            <?php endforeach; ?>
 		            <?php endif; ?>
 	            </div>
 	            <div class="tags">
 		            <?php if ( !empty( $tags ) ): ?>
 			            <?php foreach( $tags as $tag ): ?>
-				            <a href="/<?php echo $tag->taxonomy ?>/<?php echo $tag->slug ?>/"><tag><?php echo $tag->name ?></tag></a>
+				            <a href="/<?php echo $tag->taxonomy ?>/<?php echo $tag->slug ?>/"><span class="tag"><?php echo $tag->name ?></span></a>
 			            <?php endforeach; ?>
 		            <?php endif; ?>
 	            </div>
@@ -115,7 +115,7 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
                     <div class="swiper-slide">
 						<div class="slide-container">
 							<h3><?php _e( 'Step', 'opensauce' ) ?> <?php echo $step; ?></h3>
-							<p><?php echo $description ?></p>
+							<?php echo $description ?>
 						</div>
                     </div>
                     <?php
