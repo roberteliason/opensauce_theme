@@ -144,6 +144,7 @@ function opensauce_scripts() {
 		opensauce_maybe_enqueue_script( 'jquery', '/bower_components/jquery/dist/jquery.min.js', array() );
 	}
 	opensauce_maybe_enqueue_script( 'swiper', '/bower_components/swiper/dist/js/swiper.min.js', array( 'jquery' ) );
+	opensauce_maybe_enqueue_script( 'slick', '/bower_components/slick.js/slick/slick.min.js', array( 'jquery' ) );
 	opensauce_maybe_enqueue_script( 'magnific', '/bower_components/magnific-popup/dist/jquery.magnific-popup.min.js', array( 'jquery' ) );
 	// opensauce_maybe_enqueue_script( 'main-js', '/js/main.min.js', array( 'jquery' ) );
 	opensauce_maybe_enqueue_script( 'main-js', '/js/main.js', array( 'jquery' ) );

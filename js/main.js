@@ -213,6 +213,12 @@
             paginationClickable: true
         });
         resizeStepSwiper();
+
+        $( '.slick-wrapper' ).slick(
+            {
+                autoplay: true,
+            }
+        );
     });
 
     $( window ).resize( function() {
