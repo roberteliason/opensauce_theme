@@ -42,11 +42,6 @@ $latest = Recipe_Functions::get()->get_latest();
                     </li>
                 <?php endforeach; ?>
             </ul>
-
-<!--            <div class="swiper-pagination"></div>-->
-<!---->
-<!--            <div class="swiper-button-prev"></div>-->
-<!--            <div class="swiper-button-next"></div>-->
         </div>
 
     </div>

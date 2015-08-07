@@ -510,9 +510,6 @@ nav.posts-navigation .nav-links {
       content: "";
       display: table; }
     @media screen and (min-width: 40em) {
-      .home.page-template-default .main .page-content {
-        padding: 0 1.5rem; } }
-    @media screen and (min-width: 40em) {
       .home.page-template-default .main .page-content article {
         float: left;
         display: block;
@@ -521,6 +518,12 @@ nav.posts-navigation .nav-links {
         margin-left: 0; }
         .home.page-template-default .main .page-content article:last-child {
           margin-right: 0; } }
+    @media screen and (min-width: 40em) {
+      .home.page-template-default .main .page-content article {
+        padding-left: 1.5rem; } }
+    @media screen and (min-width: 68em) {
+      .home.page-template-default .main .page-content article {
+        padding: 0; } }
     @media screen and (min-width: 40em) {
       .home.page-template-default .main .page-content .widget-area {
         float: left;
@@ -628,10 +631,10 @@ nav.posts-navigation .nav-links {
     display: table; }
 .single-recipe .intro {
   margin: 0; }
-  .single-recipe .intro .swiper-container {
+  .single-recipe .intro .slick-container {
     height: 240px; }
     @media screen and (min-width: 40em) {
-      .single-recipe .intro .swiper-container {
+      .single-recipe .intro .slick-container {
         height: 450px; } }
   .single-recipe .intro header {
     position: relative;
@@ -680,12 +683,13 @@ nav.posts-navigation .nav-links {
   background-color: rgba(0, 255, 0, 0.25); }
 .single-recipe .steps header {
   background-color: pink; }
-.single-recipe .steps .swiper-container {
+.single-recipe .steps .slick-container {
   height: auto;
   min-height: 300px; }
-.single-recipe .steps .swiper-slide {
-  height: auto; }
-.single-recipe .steps .swiper-button-next, .single-recipe .steps .swiper-button-prev {
+.single-recipe .steps .slick-slide {
+  height: auto;
+  padding: 0.75rem; }
+.single-recipe .steps .slick-button-next, .single-recipe .steps .slick-button-prev {
   top: 94.5%;
   width: 40px;
   height: 40px; }

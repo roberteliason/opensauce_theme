@@ -106,13 +106,13 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
             </header>
 
             <div class="swiper-container">
-                <div class="swiper-wrapper" itemprop="recipeInstructions">
+                <div class="slick-wrapper" itemprop="recipeInstructions">
                     <?php
                         $step = 1;
                         while( have_rows( 'steps' ) ): the_row();
                             $description = get_sub_field( 'description' );
                     ?>
-                    <div class="swiper-slide">
+                    <div class="slick-slide">
 						<div class="slide-container">
 							<h3><?php _e( 'Step', 'opensauce' ) ?> <?php echo $step; ?></h3>
 							<?php echo $description ?>
@@ -123,11 +123,6 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
                         endwhile;
                     ?>
                 </div>
-
-                <div class="swiper-pagination"></div>
-
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
             </div>
         </section>
         <?php endif; ?>

@@ -59,14 +59,22 @@
 
         .page-content {
             @include outer-container;
-            @include media( $medium-screen-up ) {
-                padding: 0 $base-spacing;
-            }
+            //@include media( min-width $medium-screen-up max-width $large-screen ) {
+            //    padding: 0 $base-spacing;
+            //}
 
             article {
                 @include media( $medium-screen-up ) {
                     @include span-columns( 8 );
                     margin-left: 0;
+                }
+
+                @include media ( $medium-screen-up ) {
+                    padding-left: $base-spacing;
+                }
+
+                @include media ( $full-screen-up ) {
+                    padding: 0;
                 }
             }
 

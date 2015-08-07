@@ -12,7 +12,7 @@
 	.intro {
 		margin: 0;
 
-		.swiper-container {
+		.slick-container {
 			height: 240px;
 
 			@include media( $medium-screen-up ) {
@@ -76,16 +76,17 @@
 			background-color: pink;
 		}
 
-        .swiper-container {
+        .slick-container {
             height: auto;
             min-height: 300px;
         }
 
-        .swiper-slide {
+        .slick-slide {
             height: auto;
+	        padding: $small-spacing;
         }
 
-        .swiper-button-next, .swiper-button-prev {
+        .slick-button-next, .slick-button-prev {
             top: 94.5%;
             width: 40px;
             height: 40px;
