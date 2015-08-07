@@ -466,15 +466,20 @@ nav.posts-navigation .nav-links {
 
 .home.page-template-default .main {
   margin: 0 auto; }
-  .home.page-template-default .main .latest .slick-container .slick-pagination-bullet {
-    border: 1px solid #fff; }
-  @media screen and (min-width: 53.75em) {
-    .home.page-template-default .main .latest .slick-container {
-      height: 450px; }
-      .home.page-template-default .main .latest .slick-container .slick-pagination {
-        padding: 4px 0 6px 0;
-        bottom: 0px;
-        background-color: #fff; } }
+  .home.page-template-default .main .latest .slick-container {
+    margin-bottom: 2rem; }
+    @media screen and (min-width: 53.75em) {
+      .home.page-template-default .main .latest .slick-container {
+        margin-bottom: 0; } }
+    .home.page-template-default .main .latest .slick-container .slick-pagination-bullet {
+      border: 1px solid #fff; }
+    @media screen and (min-width: 53.75em) {
+      .home.page-template-default .main .latest .slick-container {
+        height: 460px; }
+        .home.page-template-default .main .latest .slick-container .slick-pagination {
+          padding: 4px 0 6px 0;
+          bottom: 0px;
+          background-color: #fff; } }
   .home.page-template-default .main .latest .slick-slide {
     background-position: center center;
     background-size: cover; }
@@ -485,7 +490,7 @@ nav.posts-navigation .nav-links {
     .home.page-template-default .main .latest .slick-slide .content {
       background-color: rgba(0, 0, 0, 0.25);
       width: 50%;
-      min-height: 320px;
+      min-height: 350px;
       box-sizing: border-box; }
       @media screen and (min-width: 40em) {
         .home.page-template-default .main .latest .slick-slide .content {
@@ -838,34 +843,88 @@ nav.posts-navigation .nav-links {
 
 @media screen and (min-width: 53.75em) {
   .slick-prev {
-    background: url(../images/previous-arrow-grey.svg) no-repeat;
-    height: 27px;
-    width: 26px;
+    background: url(../img/arrow-left.svg) no-repeat;
+    height: 100px;
+    width: 50px;
     position: absolute;
     top: 50%;
-    left: -30px;
-    margin-top: -15px; }
+    left: -60px;
+    margin-top: -15px;
+    opacity: 1; }
     .slick-prev:focus {
       outline: none; }
     .slick-prev:not(.slick-disabled) {
-      background: url(../images/previous-arrow.svg) no-repeat; } }
+      opacity: 0.5; } }
 
 @media screen and (min-width: 53.75em) {
   .slick-next {
-    background: url(../images/next-arrow-grey.svg) no-repeat;
-    height: 27px;
-    width: 26px;
+    background: url(../img/arrow-right.svg) no-repeat;
+    height: 100px;
+    width: 50px;
     position: absolute;
     top: 50%;
-    right: -30px;
-    margin-top: -15px; }
+    right: -50px;
+    margin-top: -15px;
+    opacity: 1; }
     .slick-next:focus {
       outline: none; }
     .slick-next:not(.slick-disabled) {
-      background: url(../images/next-arrow.svg) no-repeat; } }
+      opacity: 0.5; } }
 
 .slick-disabled:hover {
   cursor: default; }
+
+.slick-dots {
+  position: absolute;
+  bottom: -25px;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  width: 100%; }
+  .slick-dots li {
+    position: relative;
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    margin: 0 0.375rem;
+    padding: 0;
+    cursor: pointer; }
+    .slick-dots li button {
+      border: 0;
+      background: transparent;
+      display: block;
+      height: 1rem;
+      width: 1rem;
+      outline: none;
+      line-height: 0px;
+      font-size: 0px;
+      color: transparent;
+      padding: 5px;
+      cursor: pointer; }
+      .slick-dots li button:hover, .slick-dots li button:focus {
+        outline: none; }
+        .slick-dots li button:hover:before, .slick-dots li button:focus:before {
+          opacity: 1; }
+      .slick-dots li button:before {
+        position: absolute;
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+        content: "•";
+        width: 1rem;
+        height: 1rem;
+        font-family: "slick";
+        font-size: 6px;
+        line-height: 1rem;
+        text-align: center;
+        background-color: black;
+        opacity: 0.25;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale; }
+    .slick-dots li.slick-active button:before {
+      background-color: black;
+      opacity: 0.75; }
 
 body {
   margin: 0; }

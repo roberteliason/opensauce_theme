@@ -4,13 +4,17 @@
 
         .latest {
             .slick-container{
+                margin-bottom: 2rem;
+                @include media ( $large-screen-up ) {
+                    margin-bottom: 0;
+                }
 
                 .slick-pagination-bullet {
                     border: 1px solid $base-background-color;
                 }
 
                 @include media( $large-screen ) {
-                    height: 450px;
+                    height: 460px;
 
                     .slick-pagination {
                         padding: 4px 0 6px 0;
@@ -33,7 +37,7 @@
                 .content {
                     background-color: rgba( 0, 0, 0, 0.25 );
                     width: 50%;
-                    min-height: 320px;
+                    min-height: 350px;
                     box-sizing: border-box;
 
                     @include media( $medium-screen-up ) {

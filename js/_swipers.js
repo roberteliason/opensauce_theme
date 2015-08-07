@@ -53,6 +53,24 @@
         $( '.slick-wrapper' ).slick(
             {
                 autoplay: true,
+                prevArrow: '<a href="#" class="slick-prev"></a>',
+                nextArrow: '<a href="#" class="slick-next"></a>',
+                mobileFirst: true,
+                dots: true,
+                responsive: [
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: true
+                        }
+                    }
+                ]
             }
         );
     });
