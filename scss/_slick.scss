@@ -80,6 +80,10 @@ $slick-opacity-not-active: 0.25 !default;
 	[dir="rtl"] & {
 		float: right;
 	}
+	&:focus {
+		outline: none;
+	}
+
 	img {
 		display: block;
 	}
@@ -118,11 +122,9 @@ $slick-opacity-not-active: 0.25 !default;
 		left: -60px;
 		margin-top: -15px;
 		opacity: 1;
+		z-index: 99;
 		&:focus {
 			outline: none;
-		}
-		&:not( .slick-disabled ) {
-			opacity: 0.5;
 		}
 	}
 }
@@ -136,11 +138,9 @@ $slick-opacity-not-active: 0.25 !default;
 		right: -50px;
 		margin-top: -15px;
 		opacity: 1;
+		z-index: 99;
 		&:focus {
 			outline: none;
-		}
-		&:not( .slick-disabled ) {
-			opacity: 0.5;
 		}
 	}
 }

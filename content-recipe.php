@@ -10,17 +10,14 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>  itemscope itemtype="http://schema.org/Recipe">
     <div class="intro">
         <?php if( have_rows( 'images' ) ): ?>
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
+        <div class="slick-container">
+            <div class="slick-wrapper">
                 <?php while( have_rows('images') ): the_row();
                     $image = get_sub_field( 'photo' );
                 ?>
-                <div class="swiper-slide" style="background-image: url( '<?php echo $image["url"]; ?>' );"></div>
+                <div class="slick-slide" style="background-image: url( '<?php echo $image["url"]; ?>' );"></div>
                 <?php endwhile; ?>
             </div>
-
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
         </div>
         <?php endif; ?>
 
@@ -105,7 +102,7 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
                 </a>
             </header>
 
-            <div class="swiper-container">
+            <div class="slick-container">
                 <div class="slick-wrapper" itemprop="recipeInstructions">
                     <?php
                         $step = 1;

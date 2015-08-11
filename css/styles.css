@@ -631,11 +631,18 @@ nav.posts-navigation .nav-links {
     display: table; }
 .single-recipe .intro {
   margin: 0; }
-  .single-recipe .intro .slick-container {
-    height: 240px; }
+  .single-recipe .intro .slick-slide {
+    height: 240px;
+    background-position: center center;
+    background-size: cover; }
     @media screen and (min-width: 40em) {
-      .single-recipe .intro .slick-container {
+      .single-recipe .intro .slick-slide {
         height: 450px; } }
+  .single-recipe .intro .slick-dots {
+    bottom: 15px;
+    text-align: right;
+    padding-right: 15px;
+    z-index: 999; }
   .single-recipe .intro header {
     position: relative;
     margin-top: -3.75em;
@@ -689,10 +696,12 @@ nav.posts-navigation .nav-links {
 .single-recipe .steps .slick-slide {
   height: auto;
   padding: 0.75rem; }
-.single-recipe .steps .slick-button-next, .single-recipe .steps .slick-button-prev {
-  top: 94.5%;
-  width: 40px;
-  height: 40px; }
+.single-recipe .steps .slick-next {
+  top: 100%;
+  right: 0; }
+.single-recipe .steps .slick-prev {
+  top: 100%;
+  left: -15px; }
 .single-recipe .ingredients, .single-recipe .steps {
   margin-bottom: 1.5rem; }
   @media screen and (min-width: 40em) {
@@ -830,6 +839,8 @@ nav.posts-navigation .nav-links {
   display: none; }
   [dir="rtl"] .slick-slide {
     float: right; }
+  .slick-slide:focus {
+    outline: none; }
   .slick-slide img {
     display: block; }
   .slick-slide.slick-loading img {
@@ -854,11 +865,10 @@ nav.posts-navigation .nav-links {
     top: 50%;
     left: -60px;
     margin-top: -15px;
-    opacity: 1; }
+    opacity: 1;
+    z-index: 99; }
     .slick-prev:focus {
-      outline: none; }
-    .slick-prev:not(.slick-disabled) {
-      opacity: 0.5; } }
+      outline: none; } }
 
 @media screen and (min-width: 53.75em) {
   .slick-next {
@@ -869,11 +879,10 @@ nav.posts-navigation .nav-links {
     top: 50%;
     right: -50px;
     margin-top: -15px;
-    opacity: 1; }
+    opacity: 1;
+    z-index: 99; }
     .slick-next:focus {
-      outline: none; }
-    .slick-next:not(.slick-disabled) {
-      opacity: 0.5; } }
+      outline: none; } }
 
 .slick-disabled:hover {
   cursor: default; }
