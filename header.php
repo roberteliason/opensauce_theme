@@ -23,6 +23,7 @@
 			<div class="navigation-wrapper">
 				<a href="<?php echo home_url(); ?>" class="logo">
                     <?php opensauce_render_image( 'chili_pepper.png', 'Open Sauce' ) ?>
+					<span class="printable-sitename"><?php bloginfo( 'name' ) ?></span>
 				</a>
 				<a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
 

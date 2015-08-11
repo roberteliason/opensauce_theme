@@ -2,9 +2,10 @@
 /**
  * @package opensauce
  */
-$permalink = get_the_permalink();
-$cats = Recipe_Functions::get()->get_recipe_cats( get_the_ID() );
-$tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
+$permalink      = get_the_permalink();
+$cats           = Recipe_Functions::get()->get_recipe_cats( get_the_ID() );
+$tags           = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
+$recipe_printer = new Recipe_Print;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>  itemscope itemtype="http://schema.org/Recipe">
@@ -89,6 +90,11 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
                     </tbody>
                 </table>
             </div>
+
+            <div class="printable-qr-code">
+	            <h3><?php _e( 'Scan to read this recipe online', 'opensauce' ) ?></h3>
+                <?php $recipe_printer->printQRCode( false, 3 ); ?>
+            </div>
         </section>
         <?php endif; ?>
 
@@ -120,6 +126,22 @@ $tags = Recipe_Functions::get()->get_recipe_tags( get_the_ID() );
                         endwhile;
                     ?>
                 </div>
+            </div>
+
+            <div class="printable-steps">
+                <?php
+                $step = 1;
+                while( have_rows( 'steps' ) ): the_row();
+                    $description = get_sub_field( 'description' );
+                    ?>
+                    <div class="printable-step">
+                        <h3><?php _e( 'Step', 'opensauce' ) ?> <?php echo $step; ?></h3>
+                        <?php echo $description ?>
+                    </div>
+                    <?php
+                    $step++;
+                endwhile;
+                ?>
             </div>
         </section>
         <?php endif; ?>

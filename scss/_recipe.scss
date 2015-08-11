@@ -81,6 +81,11 @@
 		tbody tr.selected {
 			background-color: rgba( 0,255,0,0.25 );
 		}
+
+		.printable-qr-code {
+			text-align: center;
+			display: none;
+		}
 	}
 
 	.steps {
@@ -106,6 +111,10 @@
 		.slick-prev {
 			top: 100%;
 			left: -15px;
+		}
+
+		.printable-steps {
+			display: none;
 		}
 	}
 

@@ -1,0 +1,47 @@
+@media print {
+
+	header.navigation .logo .printable-sitename {
+		display: inline-block;
+	}
+
+	.entry-footer,
+	.social {
+		display: none;
+	}
+
+	.slick-prev,
+	.slick-next,
+	.slick-dots {
+		display: none;
+	}
+
+	.single-recipe {
+		.ingredients,
+		.steps {
+			@include span-columns( 6 );
+		}
+
+		.ingredients {
+			.printable-qr-code {
+				display: block;
+
+				svg {
+					#elements {
+						fill: black;
+					}
+				}
+			}
+		}
+
+		.steps {
+			.slick-container {
+				display: none;
+			}
+
+			.printable-steps {
+				display: block;
+				padding: $small-spacing;
+			}
+		}
+	}
+}

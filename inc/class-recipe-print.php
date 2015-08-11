@@ -12,35 +12,35 @@ class Recipe_Print {
 	}
 
 
-	public function printQRCode( $url = false ) {
+	public function printQRCode( $url = false, $size = 10 ) {
 
 		if ( false === $url ) {
 			$url = $this->getCurrentPath();
 		}
 
 		$barcodeobj = new TCPDF2DBarcode( $url, 'QRCODE, H');
-		echo( $barcodeobj->getBarcodeSVGcode( 10, 10, '#EEEEEE' ) );
+		echo( $barcodeobj->getBarcodeSVGcode( $size, $size, '#EEEEEE' ) );
 	}
 
 
-	public function getQRCode( $url = false ) {
+	public function getQRCode( $url = false, $size = 10 ) {
 
 		if ( false === $url ) {
 			$url = $this->getCurrentPath();
 		}
 
 		$barcodeobj = new TCPDF2DBarcode( $url, 'QRCODE, H');
-		$barcodeobj->getBarcodeSVG( 10, 10, '#EEEEEE' );
+		$barcodeobj->getBarcodeSVG( $size, $size, '#EEEEEE' );
 	}
 
 
-	public function getQRCodePNG( $url = false ) {
+	public function getQRCodePNG( $url = false, $size = 10 ) {
 		if ( false === $url ) {
 			$url = $this->getCurrentPath();
 		}
 
 		$barcodeobj = new TCPDF2DBarcode( $url, 'QRCODE, H');
-		$barcodeobj->getBarcodePNG( 10, 10, array( 33, 33, 33 ) );
+		$barcodeobj->getBarcodePNG( $size, $size, array( 33, 33, 33 ) );
 	}
 
 
