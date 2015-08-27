@@ -49,6 +49,13 @@
                 @include media( $medium-screen-up ) {
                   @include span-columns( 8 );
                 }
+
+	            .author,
+	            time
+	            {
+		            font-size: 0.75rem;
+		            opacity: 0.75;
+	            }
             }
 
             .meta {

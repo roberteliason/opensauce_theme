@@ -28,6 +28,8 @@ $recipe_printer = new Recipe_Print;
         <div class="columns">
             <div class="body" itemprop="description">
                 <?php the_content(); ?>
+                <div class="author" itemscope itemprop="author" itemtype="http://schema.org/Person"><?php _e( 'by', 'opensauce' ) ?>: <?php the_author() ?></div>
+	            <time itemscope itemprop=“dateModified” content=“<?php the_modified_date( 'Y-m-d' ) ?>”><?php _e( 'Last updated on', 'opensauce' ) ?>: <?php the_modified_date( 'Y-m-d' ) ?></time>
             </div>
             <div class="meta">
 	            <div class="attributes">
