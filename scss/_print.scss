@@ -1,12 +1,18 @@
 @media print {
 
+	body {
+		font-size: 0.75rem;
+	}
+
 	header.navigation .logo .printable-sitename {
 		display: inline-block;
 	}
 
+	.navigation-menu-button,
 	.entry-footer,
-	.social {
-		display: none;
+	.social,
+	.nonsense {
+		display: none !important;
 	}
 
 	.slick-prev,
@@ -16,6 +22,11 @@
 	}
 
 	.single-recipe {
+		.cats,
+		.tags {
+			display: inline-block;
+		}
+
 		.ingredients,
 		.steps {
 			@include span-columns( 6 );
@@ -42,6 +53,12 @@
 				display: block;
 				padding: $small-spacing;
 			}
+		}
+
+		.factoid, .gauge, .rating {
+			@include span-columns(3);
+			@include omega(4n);
+			border: none;
 		}
 	}
 }

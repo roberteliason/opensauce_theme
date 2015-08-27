@@ -81,9 +81,13 @@ $recipe_printer = new Recipe_Print;
                         $amount     = get_sub_field( 'amount' );
                         $unit       = get_sub_field( 'unit' );
                         $ingredient = get_sub_field( 'ingredient' );
+                        $unit_name  = '';
+                        if ( isset( $unit->name ) ) {
+                            $unit_name = $unit->name;
+                        }
                     ?>
                     <tr itemprop="recipeIngredient">
-                        <td class="amount"><?php echo $amount ?>&nbsp;<?php echo $unit->name ?></td>
+                        <td class="amount"><?php echo $amount ?>&nbsp;<?php echo $unit_name ?></td>
                         <td class="ingredient"><?php echo $ingredient ?></td>
                     </tr>
                     <?php endwhile; ?>

@@ -45,7 +45,7 @@ header.navigation {
 		padding-right: 1em;
 		text-transform: uppercase;
 
-		@include media ($horizontal-bar-mode) {
+		@include media ( $horizontal-bar-mode ) {
 			display: none;
 		}
 
@@ -62,7 +62,7 @@ header.navigation {
 		min-height: $navigation-height;
 		z-index: 9999999;
 
-		@include media ($horizontal-bar-mode) {
+		@include media ( $horizontal-bar-mode ) {
 			float: left;
 		}
 	}
