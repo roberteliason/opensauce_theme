@@ -27,7 +27,7 @@
 				</a>
 				<a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
 
-                <?php opensauce_render_main_menu() ?>
+				<?php opensauce_maybe_cache_output( 'main_menu', 'opensauce_render_main_menu', HOUR_IN_SECONDS ); ?>
 			</div>
 		</header>
 

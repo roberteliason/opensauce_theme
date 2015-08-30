@@ -13,39 +13,9 @@
 get_header();
 $permalink = get_the_permalink();
 
-$latest = Recipe_Functions::get()->get_latest();
 ?>
 
-    <?php if ( false !== $latest ) : ?>
-    <div class="latest">
-
-        <div class="slick-container">
-            <ul class="slick-wrapper">
-                <?php
-                foreach( $latest as $recipe ):
-                    $title     = $recipe->post_title;
-                    $link      = get_the_permalink( $recipe->ID );
-                    $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $recipe->ID ), 'large' );
-                    $excerpt   = $recipe->post_excerpt;
-                    ?>
-                    <li class="slick-slide" style="background-image: url( '<?php echo $thumbnail[0] ?>' );">
-                        <a href="<?php echo $link ?>">
-                            <div class="content">
-                                <header>
-                                    <h2><?php echo $title ?></h2>
-                                </header>
-                                <div class="body">
-                                    <?php echo $excerpt ?>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-
-    </div>
-    <?php endif; ?>
+	<?php opensauce_maybe_cache_output( 'frontpage_slider', 'opensauce_render_frontpage_slider', 600 ); ?>
 
 	<div class="page-content">
 		<?php while ( have_posts() ) : the_post(); ?>
@@ -54,9 +24,7 @@ $latest = Recipe_Functions::get()->get_latest();
 
 		<?php endwhile; // end of the loop. ?>
 
-		<div class="widget-area">
-			<?php dynamic_sidebar( 'frontpage' ); ?>
-		</div>
+		<?php opensauce_maybe_cache_output( 'frontpage_sidebar', 'opensauce_render_frontpage_sidebar', 600 ); ?>
 	</div>
 
     <div class="social">

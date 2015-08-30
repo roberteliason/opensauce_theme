@@ -19,6 +19,14 @@ include_once( get_template_directory() . '/taxonomies/recipe_type.php' );
 include_once( get_template_directory() . '/inc/class-recipe-functions.php' );
 include_once( get_template_directory() . '/inc/class-opensauce-nav-walker.php' );
 include_once( get_template_directory() . '/inc/class-recipe-print.php' );
+include_once( get_template_directory() . '/inc/template-callbacks.php' );
+
+/**
+ * Include PAPI-directory
+ */
+add_filter( 'papi/settings/directories', function () {
+	return get_template_directory() . '/papi/page-types';
+} );
 
 
 /**
@@ -193,23 +201,6 @@ add_action( 'edit_form_after_title', 'post_excerpt_meta_box' );
 
 
 /**
- * Custom main menu
- */
-function opensauce_render_main_menu() {
-    wp_nav_menu(
-        array(
-            'theme_location'  => 'primary',
-            'menu_class'      => 'navigation-menu show',
-            'menu_id'         => 'js-navigation-menu',
-            'container'       => 'nav',
-            'container_class' => 'navigation',
-            'walker'          => new Opensauce_Nav_Walker
-        )
-    );
-}
-
-
-/**
  * A cautious approach to enqueuing js dependencies
  *
  * @param $script_slug
@@ -233,5 +224,25 @@ function opensauce_maybe_enqueue_script( $script_slug, $script_path, $script_dep
 function opensauce_maybe_enqueue_styles( $style_slug, $style_path ) {
 	if ( file_exists( get_template_directory() . $style_path ) ) {
 		wp_enqueue_style( $style_slug, get_template_directory_uri() . $style_path );
+	}
+}
+
+
+/**
+ * Try to use the Simple Cache API
+ *
+ * @param $cache_key
+ * @param $template_callback
+ * @param int $ttl
+ */
+function opensauce_maybe_cache_output( $cache_key, $template_callback, $ttl = 0 ) {
+//	echo( $template_callback );
+//	echo call_user_func( $template_callback );
+
+	if( true === class_exists( 'Simple_Cache_API' ) ) {
+		$cache_api = new Simple_Cache_API();
+		echo $cache_api->get( $cache_key, $template_callback, $ttl );
+	} else {
+		echo call_user_func( $template_callback );
 	}
 }
