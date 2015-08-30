@@ -177,9 +177,8 @@
         $( $slideContainer ).height( maxHeight + 42 );
     }
 
-    $( document ).ready( function () {
 
-    //    resizeStepSwiper();
+    $( document ).ready( function () {
 
         $( '.latest .slick-wrapper' ).slick(
             {
@@ -255,6 +254,5 @@
     });
 
     $( window ).resize( function() {
-        resizeStepSwiper();
     });
 }) ( jQuery );
