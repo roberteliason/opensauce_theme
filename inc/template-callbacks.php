@@ -266,7 +266,7 @@ function opensauce_render_recipe_steps() {
 						?>
 						<div class="slick-slide">
 							<div class="slide-container">
-								<h3><?php _e( 'Step', 'opensauce' ) ?> <?php echo $step_no; ?></h3>
+								<span class="step-header"><?php _e( 'Step', 'opensauce' ) ?> <?php echo $step_no; ?></span>
 								<?php echo $description ?>
 							</div>
 						</div>
@@ -406,7 +406,7 @@ function opensauce_render_recipe_social() {
 		<section class="sharing">
 			<header>
 				<a href="#sharing">
-					<h2>Share this</h2>
+					<h2>Share this recipe</h2>
 				</a>
 			</header>
 			<div class="body">
@@ -420,7 +420,7 @@ function opensauce_render_recipe_social() {
 		<section class="follow">
 			<header>
 				<a href="#follow">
-					<h2>Follow us</h2>
+					<h2>Follow Open Sauce</h2>
 				</a>
 			</header>
 			<div class="body">

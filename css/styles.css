@@ -703,6 +703,10 @@ nav.posts-navigation .nav-links {
   display: none; }
 .single-recipe .steps header {
   background-color: pink; }
+.single-recipe .steps .step-header {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600; }
 .single-recipe .steps .slick-container {
   height: auto;
   min-height: 300px; }

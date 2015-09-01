@@ -32,7 +32,7 @@ $permalink = get_the_permalink();
         <section class="sharing">
             <header>
                 <a href="#sharing">
-                    <h2>Share this</h2>
+                    <h2>Sharing is caring!</h2>
                 </a>
             </header>
             <div class="body">
@@ -45,7 +45,7 @@ $permalink = get_the_permalink();
         <section class="follow">
             <header>
                 <a href="#follow">
-                    <h2>Follow us</h2>
+                    <h2>Follow Open Sauce</h2>
                 </a>
             </header>
             <div class="body">
