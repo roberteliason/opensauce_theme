@@ -13,7 +13,7 @@ class Recipe_Page_Type extends Papi_Page_Type {
 			'description' => 'The key recipe content',
 			'post_type'   => 'recipe',
 			'fill_labels' => true,
-			'template'    => 'papi/pages/recipe-page.php'
+			'template'    => 'single.php'
 		];
 	}
 
