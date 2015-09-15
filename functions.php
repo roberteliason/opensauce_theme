@@ -5,6 +5,7 @@
  * @package opensauce
  */
 
+
 /**
  * Include custom post types and taxonomies
  */
@@ -12,6 +13,7 @@ include_once( get_template_directory() . '/post-types/recipe.php' );
 include_once( get_template_directory() . '/taxonomies/ingredient.php' );
 include_once( get_template_directory() . '/taxonomies/unit.php' );
 include_once( get_template_directory() . '/taxonomies/recipe_type.php' );
+
 
 /**
  * Include helper classes
@@ -21,11 +23,16 @@ include_once( get_template_directory() . '/inc/class-opensauce-nav-walker.php' )
 include_once( get_template_directory() . '/inc/class-recipe-print.php' );
 include_once( get_template_directory() . '/inc/template-callbacks.php' );
 
+
 /**
  * Include PAPI-directory
  */
 add_filter( 'papi/settings/directories', function () {
 	return get_template_directory() . '/papi/page-types';
+} );
+
+add_filter( 'papi/settings/only_page_type_recipe', function () {
+	return 'recipe-page-type';
 } );
 
 
