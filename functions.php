@@ -243,13 +243,118 @@ function opensauce_maybe_enqueue_styles( $style_slug, $style_path ) {
  * @param int $ttl
  */
 function opensauce_maybe_cache_output( $cache_key, $template_callback, $ttl = 0 ) {
-//	echo( $template_callback );
-//	echo call_user_func( $template_callback );
-
 	if( true === class_exists( 'Simple_Cache_API' ) ) {
 		$cache_api = new Simple_Cache_API();
 		echo $cache_api->get( $cache_key, $template_callback, $ttl );
 	} else {
 		echo call_user_func( $template_callback );
 	}
+}
+
+
+/**
+ * Register custom query vars
+ *
+ * @param $vars
+ *
+ * @return array
+ */
+function opensauce_add_query_vars($vars) {
+	$vars[] = "flush_cache";
+	return $vars;
+}
+add_filter('query_vars', 'opensauce_add_query_vars');
+
+
+/**
+ * Add custom buttons for cache management
+ *
+ * @param $wp_admin_bar
+ */
+function opensauce_add_menu_buttons( $wp_admin_bar ) {
+
+	if(!class_exists( 'Simple_Cache_API' )) {
+		return;
+	}
+
+	$post = get_post();
+	if( $post instanceof \WP_Post ) {
+
+		$perma = get_permalink( $post->ID );
+		$perma = add_query_arg( 'flush_cache', 'yes', $perma );
+
+		$args = array(
+			'id'    => 'custom-button',
+			'title' => 'Clear cache',
+			'href'  => $perma,
+			'meta'  => array(
+				'class' => 'clear-cache'
+			)
+		);
+		$wp_admin_bar->add_node( $args );
+
+	}
+}
+add_action('admin_bar_menu', 'opensauce_add_menu_buttons', 50);
+
+
+/**
+ * Look for custom query var and a recipe post
+ * Maybe clear the cache, yes?
+ *
+ * @param $post_object
+ */
+function opensauce_recipe_load_callback( $post_object ) {
+
+	if(!class_exists( 'Simple_Cache_API' )) {
+		return;
+	}
+
+	$flush_cache = get_query_var( 'flush_cache' );
+
+	if( 'yes' == $flush_cache && 'recipe' == $post_object->post_type ) {
+		opensauce_clear_recipe_cache( $post_object->ID );
+	}
+}
+add_action( 'the_post', 'opensauce_recipe_load_callback' );
+
+
+/**
+ * Clear a recipe cache after updated
+ *
+ * @param $post_ID
+ * @param $post_after
+ * @param $post_before
+ */
+function opensauce_clear_recipe_cache_on_update($post_ID, $post_after, $post_before){
+	if(!class_exists( 'Simple_Cache_API' )) {
+		return;
+	}
+
+	if( 'recipe' == $post_before->post_type ) {
+		opensauce_clear_recipe_cache( $post_ID );
+	}
+}
+add_action( 'post_updated', 'opensauce_clear_recipe_cache_on_update', 10, 3 );
+
+
+/**
+ * Empties
+ *
+ * @param $post_id
+ */
+function opensauce_clear_recipe_cache( $post_id ) {
+	if(!class_exists( 'Simple_Cache_API' )) {
+		return;
+	}
+
+	$cache_api = new Simple_Cache_API();
+
+	$cache_api->flush( 'recipe_'.$post_id.'_body' );
+	$cache_api->flush( 'recipe_'.$post_id.'_meta' );
+	$cache_api->flush( 'recipe_'.$post_id.'_ingredients' );
+	$cache_api->flush( 'recipe_'.$post_id.'_image_slider' );
+	$cache_api->flush( 'recipe_'.$post_id.'_steps' );
+	$cache_api->flush( 'recipe_'.$post_id.'_nonsense' );
+	$cache_api->flush( 'recipe_'.$post_id.'_social' );
 }
